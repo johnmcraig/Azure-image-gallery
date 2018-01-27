@@ -7,5 +7,7 @@ namespace SimpleImageGallery.Models
 {
     public class GalleryIndexModel
     {
+        public IEnumerable<GalleryImages> Images { get; set; }
+        public string Searchquery { get; set; }
     }
 }

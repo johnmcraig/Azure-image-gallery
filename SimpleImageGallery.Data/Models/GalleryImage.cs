@@ -4,7 +4,12 @@ using System.Text;
 
 namespace SimpleImageGallery.Data.Models
 {
-    class GalleryImage
+    public class GalleryImage
     {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public DateTime Ceated { get; set; } // Publush date
+        public string Url { get; set; } // images are hosted on Azure Blob storage "cloud", so we need to access the images through a Url that points to the blobs.
+        public IEnumerable<string> Tags { get; set; }
     }
 }
