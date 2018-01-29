@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleImageGallery.Data;
 using Microsoft.EntityFrameworkCore;
+using SimpleImageGallery.Services;
 
 namespace SimpleImageGallery
 {
@@ -27,6 +28,7 @@ namespace SimpleImageGallery
                 options.UseSqlServer(Configuration
                 .GetConnectionString("DefaultConnection")));
 
+            services.AddScoped<IImage, ImageService>();
             services.AddMvc();
         }
 
