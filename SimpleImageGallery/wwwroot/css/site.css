@@ -3,6 +3,14 @@
 }
 
 .gallery-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 280px;
+    width: 280px;
+}
+
+.gallery-image-container {
     padding: 8px;
     background: #fff;
     border-radius: 2px;

@@ -1,18 +1,21 @@
 ﻿@model SimpleImageGallery.Models.GalleryIndexModel
 
 <div class="container body-content">
-    <div class="gallery-content">
+    <div class="row gallery-content">
         @foreach (var image in Model.Images)
         {
-            <div class="gallery-content"></div>
-            <span>image.Title</span>
-            <ul>
-                @foreach (var tag in image.Tags)
-                {
+            <div class="gallery-image-container">
+                <div class="gallery-image" style="background-image:url(@image.Url)"></div>
+            </div>
+                <span>@image.Title</span> //remove after testing
+                <ul>
+                    @foreach (var tag in image.Tags)
+                    {
 
-                <li>@tag.Description</li>
-                }
-            </ul>
+                    <li>@tag.Description</li>
+                    }
+                </ul>
+            
         }
     </div>
 </div>
