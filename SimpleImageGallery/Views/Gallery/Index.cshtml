@@ -2,9 +2,17 @@
 
 <div class="container body-content">
     <div class="gallery-content">
-        @foreach (var iamge in Model.Images)
+        @foreach (var image in Model.Images)
         {
             <div class="gallery-content"></div>
+            <span>image.Title</span>
+            <ul>
+                @foreach (var tag in image.Tags)
+                {
+
+                <li>@tag.Description</li>
+                }
+            </ul>
         }
     </div>
 </div>
