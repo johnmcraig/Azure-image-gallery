@@ -5,7 +5,9 @@
         @foreach (var image in Model.Images)
         {
             <div class="gallery-image-container">
-                <div class="gallery-image" style="background-image:url(@image.Url)"></div>
+                <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image.Id">
+                    <div class="gallery-image" style="background-image:url(@image.Url)"></div>
+                </a>
             </div>
                 @*<span>@image.Title</span> //remove after testing
                 <ul>
