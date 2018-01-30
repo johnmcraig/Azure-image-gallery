@@ -8,16 +8,16 @@
                 <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image.Id">
                     <div class="gallery-image" style="background-image:url(@image.Url)"></div>
                 </a>
-            </div>
-                @*<span>@image.Title</span> //remove after testing
-                <ul>
-                    @foreach (var tag in image.Tags)
-                    {
-
-                    <li>@tag.Description</li>
-                    }
-                </ul>*@
-            
+            </div>   
         }
     </div>
 </div>
+
+@*<span>@image.Title</span> //remove after testing
+    <ul>
+        @foreach (var tag in image.Tags)
+        {
+
+        <li>@tag.Description</li>
+        }
+    </ul>*@
