@@ -11,8 +11,8 @@ using System;
 namespace SimpleImageGallery.Data.Migrations
 {
     [DbContext(typeof(SimpleImageGalleryDbContext))]
-    [Migration("20180127201743_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20180130030235_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,7 @@ namespace SimpleImageGallery.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Ceated");
+                    b.Property<DateTime>("Created");
 
                     b.Property<string>("Title");
 

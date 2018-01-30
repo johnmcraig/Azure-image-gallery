@@ -7,14 +7,14 @@
             <div class="gallery-image-container">
                 <div class="gallery-image" style="background-image:url(@image.Url)"></div>
             </div>
-                <span>@image.Title</span> //remove after testing
+                @*<span>@image.Title</span> //remove after testing
                 <ul>
                     @foreach (var tag in image.Tags)
                     {
 
                     <li>@tag.Description</li>
                     }
-                </ul>
+                </ul>*@
             
         }
     </div>

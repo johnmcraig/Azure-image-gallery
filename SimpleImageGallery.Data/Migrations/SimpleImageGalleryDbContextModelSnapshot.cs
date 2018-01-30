@@ -25,7 +25,7 @@ namespace SimpleImageGallery.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Ceated");
+                    b.Property<DateTime>("Created");
 
                     b.Property<string>("Title");
 
