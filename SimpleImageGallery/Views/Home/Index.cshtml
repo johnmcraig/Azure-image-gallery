@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SimpleImageGallery.Models.GalleryIndexModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,8 +9,13 @@
 
 
         <h3>See the most recent images uplaoded here!</h3>
-        <div class="">
-         
+        <div class="gallery-small">
+            @*@foreach (var image in Model.Images)
+            {
+            <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image.Id?">
+                <div class="gallery-image" style="background-image:url(@image.Url?)"></div>
+            </a>
+            }*@
         </div>
     </div>
 </div>
