@@ -4,7 +4,26 @@
     ViewData["Title"] = "Detail";
 }
 
-<h2>Detail</h2>
+
+<div class="container body-content">
+    <div class="row image-detail-container">
+        <div class="image-detail">
+            <img src="@Model.Url" alt="@Model.Title" />
+        </div>
+
+        <div class="row image-detail-meta">
+            <span>Title: @Model.Title</span>
+            <span>Uploaded: @Model.Created</span>
+        </div>
+
+        <div class="row controls">
+            <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to the Gallery</a>
+        </div>
+    </div>
+</div>
+
+
+@*<h2>Detail</h2>
 
 <div>
     <h4>GalleryDetailModel</h4>
@@ -39,4 +58,4 @@
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@

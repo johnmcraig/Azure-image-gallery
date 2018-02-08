@@ -17,12 +17,13 @@ namespace SimpleImageGallery.Services
         }
         public IEnumerable<GalleryImage> GetAll()
         {
-            return _dbContext.GalleryImages.Include(i => i.Tags);
+            return _dbContext.GalleryImages
+                    .Include(i => i.Tags);
         }
 
         public GalleryImage GetById(int id)
         {
-            return _dbContext.GalleryImages.Find(id);
+            return GetAll().Where(i => i.Id == id).First();
         }
 
         public IEnumerable<GalleryImage> GetWithTag(string tag)
