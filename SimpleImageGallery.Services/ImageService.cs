@@ -4,6 +4,8 @@ using SimpleImageGallery.Data.Models;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace SimpleImageGallery.Services
 {
@@ -33,6 +35,13 @@ namespace SimpleImageGallery.Services
             return GetAll()
                     .Where(i => i.Tags
                     .Any(t => t.Description == tag));
+        }
+
+        public CloudBlobContainer GetBlobContainer(string azureConnectionString, string containerName)
+        {
+            var storageAccount = CloudStorageAccount.Parse(azureConnectionString); //check to get storage file
+            var blobClient = storageAccount.CreateCloudBlobClient(); //get direct reference
+            return blobClient.GetContainerReference(containerName); //get valid storage container
         }
     }
 }
