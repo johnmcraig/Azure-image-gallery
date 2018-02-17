@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using SimpleImageGallery.Services;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace SimpleImageGallery.Controllers
 {
@@ -30,14 +31,27 @@ namespace SimpleImageGallery.Controllers
 
         // Post Method
         [HttpPost]
-        public IActionResult UploadNewImage(IFormFile file)
+        public async Task<IActionResult> UploadNewImage(IFormFile file, string title, string tags)
         {
             var container = _imageService.GetBlobContainer(AzureConnectionString, "images");
+            
             // In order to upload an image, parse the Content Disposition Response Header (CDRH) as a file that uses IFormFile from the systems AspNetCore.Http
             // store the CDRH in a variable and use the systems Http Headers
             var content = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
+            
+            // Grab the file to upload and trim the quotes
+            var fileName = content.FileName.Trim('"');
+            
+            // Get a reference from a Block Blob, then pass in the fileName
+            var blockBlob = container.GetBlockBlobReference(fileName);
+            
+            // upload the block blob and file then make it asyncroness. This is a method that passes the file to the OpenReadStream
+            await blockBlob.UploadFromStreamAsync(file.OpenReadStream());
 
-            return Ok();
+            // use the imageService to set the Image that is uploaded and pass the title, tags, and location from the Block Blob (method refrenced in ImageService data library)
+            await _imageService.SetImage(title, tags, blockBlob.Uri);
+
+            return RedirectToAction("Index", "Gallery");
         }
     }
 }
