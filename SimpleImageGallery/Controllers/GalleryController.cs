@@ -41,7 +41,9 @@ namespace SimpleImageGallery.Controllers
                 Title = image.Title,
                 Created = image.Created,
                 Url = image.Url,
-                Tags = image.Tags.Select(t => t.Description).ToList()
+                Tags = image.Tags
+                    .Select(t => t.Description)
+                    .ToList()
             };
 
             return View(model);
