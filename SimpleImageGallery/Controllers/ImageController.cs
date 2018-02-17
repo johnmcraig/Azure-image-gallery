@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleImageGallery.Models;
 using Microsoft.Extensions.Configuration;
-using SimpleImageGallery.Services;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using SimpleImageGallery.Data;
 
 namespace SimpleImageGallery.Controllers
 {
     public class ImageController : Controller
     {
         private IConfiguration _config;
-        private ImageService _imageService;
+        private IImage _imageService;
         private string AzureConnectionString { get; }
         
 
-        public ImageController(IConfiguration config, ImageService imageService)
+        public ImageController(IConfiguration config, IImage imageService)
         {
             _config = config;
             _imageService = imageService;
