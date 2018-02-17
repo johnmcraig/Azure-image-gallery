@@ -34,6 +34,37 @@
     box-shadow: 0 5px 9px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+.image-detail {
+    padding: 12px;
+    border-radius: 2px;
+}
+
+.image-detail-meta {
+    padding: 12px;
+}
+
+.submit {
+    padding: 2%;
+}
+
+.btn-file {
+    margin: 6px;
+}
+
+#upload-form {
+    padding: 60px;
+    margin: auto;
+    width: 50%;
+}
+
+.upload-container {
+    padding: 2%;
+}
+
+.drop-shadow {
+    box-shadow: 0 10px rgba(0, 0, 0, 0.2), 0 5px 5px;
+}
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
