@@ -9,7 +9,8 @@
         <br/>
         <h3>See the most recent images uplaoded here!</h3>
         <div class="gallery-small">
-            @if (Model != null){
+            @if (Model != null)
+            {
                 @foreach (var image in Model?.Images) 
                 {
                   <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
