@@ -27,8 +27,9 @@ namespace SimpleImageGallery.Controllers
             {
                 //mock images to be removed after search query is fully implemented
                 Images = imageList,
-                SearchQuery = ""
+                
             };
+
             return View(model);
         }
 
