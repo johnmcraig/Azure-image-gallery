@@ -16,6 +16,7 @@ namespace SimpleImageGallery.Data
         Task SetImage(string title, string tags, Uri uri);
         List<ImageTag> ParseTags(string tags);
         IEnumerable<GalleryImage> Range(int skip, int take);
-
+        void UpdateImage(GalleryImage changeImage);
+        void DeleteImage(int id);
     }
 }

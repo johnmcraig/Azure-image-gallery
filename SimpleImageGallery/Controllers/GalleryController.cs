@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using SimpleImageGallery.Models;
 using SimpleImageGallery.Data.Models;
 using SimpleImageGallery.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace SimpleImageGallery.Controllers
 {
@@ -21,7 +22,7 @@ namespace SimpleImageGallery.Controllers
         public IActionResult Index()
         {
             var imageList = _imageService.GetAll();
-            
+
             // Todo: Pages using skip and range
             // How to show a page #
 
@@ -49,6 +50,59 @@ namespace SimpleImageGallery.Controllers
             };
 
             return View(model);
+        }
+
+        // Edit
+        // Get
+        public IActionResult Edit(int id)
+        {
+            GalleryImage imageToEdit = _imageService.GetById(id);
+            return View(imageToEdit);
+        }
+
+        //Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, GalleryImage changeImage)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(changeImage);
+            }
+            try
+            {
+                _imageService.UpdateImage(changeImage);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(changeImage);
+            }
+
+        }
+
+        // Delete
+        // Get
+        public IActionResult Delete(int id)
+        {
+            return View(_imageService.GetById(id));
+        }
+
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                _imageService.DeleteImage(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(_imageService.GetById(id));
+            }
         }
     }
 }

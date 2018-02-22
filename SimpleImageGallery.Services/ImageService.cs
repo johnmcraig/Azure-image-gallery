@@ -50,6 +50,19 @@ namespace SimpleImageGallery.Services
                     .Any(t => t.Description == tag));
         }
 
+        public void UpdateImage(GalleryImage changeImage)
+        {
+            _dbContext.Entry<GalleryImage>(changeImage).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteImage(int id)
+        {
+            var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
+            _dbContext.GalleryImages.Remove(image);
+            _dbContext.SaveChanges();
+        }
+
         public CloudBlobContainer GetBlobContainer(string azureConnectionString, string containerName)
         {
             var storageAccount = CloudStorageAccount.Parse(azureConnectionString); //check to get storage file
