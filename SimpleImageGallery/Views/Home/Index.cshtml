@@ -8,7 +8,7 @@
 
         <h1 style="text-align:center">Welcome to the Gallery</h1>
         <br/>
-        <h3 style="text-align:center">See the most recent images uplaoded here!</h3>
+        <h3 style="text-align:center">See the most recent four images uploaded below!</h3>
         
         <div class="body-content">
             @if (Model != null)
@@ -23,13 +23,11 @@
                 }
             }
         </div>
-
         <br />
-
+        <h3>Or click the link below and view all the images in the Gallery now!</h3>
         <div class="row controls">
             <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">See the Gallery</a>
         </div>
-
     </div>
 </div>
 
