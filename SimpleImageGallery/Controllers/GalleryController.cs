@@ -21,12 +21,14 @@ namespace SimpleImageGallery.Controllers
         public IActionResult Index()
         {
             var imageList = _imageService.GetAll();
+            
+            // Todo: Pages using skip and range
+            // How to show a page #
 
             var model = new GalleryIndexModel()
             {
-                //mock images to be removed after search query is fully implemented
-                Images = imageList,
-                SearchQuery = ""
+                Images = imageList
+                //SearchQuery = ""
             };
 
             return View(model);

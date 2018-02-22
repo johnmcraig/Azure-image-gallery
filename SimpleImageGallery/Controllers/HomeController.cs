@@ -21,11 +21,10 @@ namespace SimpleImageGallery.Controllers
 
         public IActionResult Index()
         {
-            var imageList = _imageService.GetAll();
+            var imageList = _imageService.Range(0,4);
 
             var model = new GalleryIndexModel()
             {
-                //mock images to be removed after search query is fully implemented
                 Images = imageList,
                 
             };

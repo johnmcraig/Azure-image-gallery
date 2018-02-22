@@ -5,23 +5,31 @@
 
 <div class="container">
     <div class="row">
-        <h2>Welcome to the Gallery</h2>
+
+        <h1 style="text-align:center">Welcome to the Gallery</h1>
         <br/>
-        <h3>See the most recent images uplaoded here!</h3>
-        <div class="gallery-small">
+        <h3 style="text-align:center">See the most recent images uplaoded here!</h3>
+        
+        <div class="body-content">
             @if (Model != null)
             {
-                @foreach (var image in Model?.Images) 
+                @foreach (var image in Model?.Images)
                 {
-                  <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
-                    <div class="gallery-image" style="background-image:url(@image?.Url)"></div>
-                  </a>
+                    <div class="gallery-image-container drop-shadow">
+                        <a class="img-responsive" asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
+                            <div class="gallery-image" style="background-image:url(@image?.Url)"></div>
+                        </a>
+                    </div>
                 }
             }
         </div>
-        <div class="btn btn-default">
-            <a asp-controller="Gallery" asp-action="Index">See the Gallery</a>
+
+        <br />
+
+        <div class="row controls">
+            <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">See the Gallery</a>
         </div>
+
     </div>
 </div>
 

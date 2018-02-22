@@ -21,14 +21,26 @@ namespace SimpleImageGallery.Services
         public IEnumerable<GalleryImage> GetAll()
         {
             return _dbContext.GalleryImages
-                    .Include(i => i.Tags);
+                    .Include(i => i.Tags)
+                    .OrderByDescending(i => i.Created)
+                    .ToList();
+        }
+        // Only call down a range of images
+        public IEnumerable<GalleryImage> Range(int skip, int take)
+        {
+            return _dbContext.GalleryImages
+                    .Include(i => i.Tags)
+                    .OrderByDescending(i => i.Created)
+                    .Skip(skip)
+                    .Take(take)
+                    .ToList();
         }
 
         public GalleryImage GetById(int id)
         {
             return GetAll()
                 .Where(i => i.Id == id)
-                .First();
+                .FirstOrDefault();
         }
 
         public IEnumerable<GalleryImage> GetWithTag(string tag)
@@ -63,7 +75,7 @@ namespace SimpleImageGallery.Services
         public List<ImageTag> ParseTags(string tags)
         {
 
-              return tags.Split(",") //allows for comma seperation on multiple string values
+              return tags.Split(", ") //allows for comma seperation on multiple string values
                 .Select(tag => new ImageTag
                 {
                     Description = tag

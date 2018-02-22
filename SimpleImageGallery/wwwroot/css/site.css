@@ -22,10 +22,18 @@
     box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-small {
-    padding: 8px;
+.gallery-image-small {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 130px;
+    height: 130px;
+}
+
+.gallery-image-container-small {
+    padding: 4px;
     background: #fff;
-    border-radius: 2px;
+    border-radius: 1px;
     display: inline-block;
     height: 150px;
     width: 150px;
