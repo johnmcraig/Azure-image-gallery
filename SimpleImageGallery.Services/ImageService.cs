@@ -88,7 +88,7 @@ namespace SimpleImageGallery.Services
         public List<ImageTag> ParseTags(string tags)
         {
 
-              return tags.Split(", ") //allows for comma seperation on multiple string values
+              return tags.Split(",") //allows for comma seperation on multiple string values
                 .Select(tag => new ImageTag
                 {
                     Description = tag

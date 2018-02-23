@@ -25,13 +25,14 @@
                 <input asp-for="Created" class="form-control" />
                 <span asp-validation-for="Created" class="text-danger"></span>
             </div>
-            <ul>
-                @foreach (var tag in Model.Tags)
-                {
-                    <li>@tag.Description</li>
-                }
-            </ul>
-            <div />
+            @*<div>
+                    <ul>
+                        @foreach (var tag in Model?.Tags)
+                        {
+                            <li>@tag?.Description</li>
+                        }
+                    </ul>
+                </div>*@
             @*<div class="form-group">
                     <label asp-for="Tags" class="control-label"></label>
                     <input asp-for="Tags" class="form-control" />
@@ -49,6 +50,7 @@
         </form>
     </div>
 </div>
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

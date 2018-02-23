@@ -17,46 +17,19 @@
         </div>
 
         <div class="row controls">
-            <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to the Gallery</a>
-            <a class="btn btn-danger" asp-controller="Gallery" asp-action="Delete">Delete This Image</a>
-            <a class="btn btn-default" asp-controller="Gallery" asp-action="Edit">Edit Title of the Image</a>
+            <span>
+                <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to the Gallery</a>
+            </span>
+            <span>
+                <a class="btn btn-danger" asp-controller="Gallery" asp-action="Delete">Delete this Image</a>
+            </span>
+            <span>
+                <a class="btn btn-default" asp-controller="Gallery" asp-action="Edit">Edit the title of the Image</a>
+            </span>
         </div>
     </div>
 </div>
-
-
 @*<h2>Detail</h2>
-
-<div>
-    <h4>GalleryDetailModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Url)
-        </dd>
-    </dl>
-</div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     <a asp-action="Index">Back to List</a>
