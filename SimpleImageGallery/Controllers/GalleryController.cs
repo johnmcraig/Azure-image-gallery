@@ -21,39 +21,6 @@ namespace SimpleImageGallery.Controllers
             _imageService = imageService; //implements the interface of IImage - add to scope service in startup
         }
 
-        // Search Query by title and tags
-        //public async Task<IActionResult> Index(string imageTitle, string imageTag, string searchString)
-        //{
-        //    IQueryable<string> titleQuery = from i in _context.Images
-        //                                    orderby i.Title
-        //                                    select i.Title;
-
-        //    IQueryable<string> tagQuery = from t in _context.Images
-        //                                  orderby t.Tags
-        //                                  select t.Tags;
-
-        //    var images = from i in _context.Images
-        //                 select i;
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        images = images.Where(s => s.Title.Contains(searchString));
-        //    }
-
-        //    if (!String.IsNullOrEmpty(imageTitle))
-        //    {
-        //        images = images.Where(x => x.Genre == imageTitle);
-        //    }
-
-        //    var imageTitleVM = new ImageTitleViewModel
-        //    {
-        //        title = new SelectList(await titleQuery.Distinct().ToListAsync()),
-        //        images = await images.ToListAsync()
-        //    };
-
-        //    return View(await images.ToListAsync());
-        //}
-
         public IActionResult Index()
         {
             var imageList = _imageService.GetAll();

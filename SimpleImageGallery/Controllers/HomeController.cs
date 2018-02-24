@@ -21,7 +21,7 @@ namespace SimpleImageGallery.Controllers
 
         public IActionResult Index()
         {
-            var imageList = _imageService.Range(0,4);
+            var imageList = _imageService.Range(0,6);
 
             var model = new GalleryIndexModel()
             {
@@ -30,20 +30,6 @@ namespace SimpleImageGallery.Controllers
             };
 
             return View(model);
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
         }
 
         public IActionResult Error()

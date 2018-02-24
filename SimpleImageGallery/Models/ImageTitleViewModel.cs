@@ -5,8 +5,8 @@ namespace SimpleImageGallery.Controllers
 {
     public class ImageTitleViewModel
     {
-        public List<ImageController> images;
-        public SelectList title;
-        public string imageTitle { get; set; }
+        public List<ImageController> Images;
+        public SelectList Title;
+        public string ImageTitle { get; set; }
     }
 }

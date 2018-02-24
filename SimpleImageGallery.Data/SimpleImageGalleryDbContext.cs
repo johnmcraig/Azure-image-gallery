@@ -8,7 +8,6 @@ namespace SimpleImageGallery.Data
     {
         public SimpleImageGalleryDbContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<GalleryImage> GalleryImages { get; set; }

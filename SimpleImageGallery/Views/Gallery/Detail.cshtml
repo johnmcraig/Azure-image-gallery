@@ -21,10 +21,10 @@
                 <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to the Gallery</a>
             </span>
             <span>
-                <a class="btn btn-danger" asp-controller="Gallery" asp-action="Delete">Delete this Image</a>
+                <a class="btn btn-danger" asp-controller="Gallery" asp-action="Delete" asp-route-id=@Model.Id>Delete this Image</a>
             </span>
             <span>
-                <a class="btn btn-default" asp-controller="Gallery" asp-action="Edit">Edit the title of the Image</a>
+                <a class="btn btn-default" asp-controller="Gallery" asp-action="Edit" asp-route-id=@Model.Id>Edit the title of the Image</a>
             </span>
         </div>
     </div>
