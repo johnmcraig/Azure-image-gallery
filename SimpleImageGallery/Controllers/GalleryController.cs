@@ -23,15 +23,11 @@ namespace SimpleImageGallery.Controllers
 
         public IActionResult Index()
         {
-            var imageList = _imageService.GetAll();
-
-            // Todo: Pages using skip and range
-            // How to show a page #
-
+            var imageList = _imageService.GetAll();  // Todo: Pages using skip and range // How to show a page #
+            
             var model = new GalleryIndexModel()
             {
                 Images = imageList
-                //SearchQuery = ""
             };
 
             return View(model);
@@ -101,7 +97,7 @@ namespace SimpleImageGallery.Controllers
                 _imageService.DeleteImage(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
                 return View(_imageService.GetById(id));
             }
