@@ -59,7 +59,9 @@ namespace SimpleImageGallery.Services
         public void DeleteImage(int id)
         {
             var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
+            var tag = _dbContext.ImageTags.FirstOrDefault(t => t.Id == id);
             _dbContext.GalleryImages.Remove(image);
+            _dbContext.ImageTags.Remove(tag);
             _dbContext.SaveChanges();
         }
 
