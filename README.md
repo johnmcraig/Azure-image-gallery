@@ -12,16 +12,15 @@ An image gallery that connects to a Azure storage blob where all uploaded images
 ## Azure Connection
 You will need a connection string from your Azure storage account found under the keys options that has to be stored s a JSON string in the User Secrets of the application.
 
-# Known Issues:
+## Known Issues:
 
-## Bug for deleting images from Database
-1. DeleteImage method in ImageServices.cs on line 59 where a Foreign Key Id for Image Tags will not allow the image to be deleted.
+1. Bug for deleting images from Database has now been fixed.
 
 # Future Features to be Implemented
 
 - A Search Query to find images by Title and Tag strings.
 - Pagination - Page numbers on the gallery if it gets larger.
-- Be able to edit tags.
+- Able to edit tags.
 
 ### Thanks where thanks need to be Credited
 
