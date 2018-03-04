@@ -14,7 +14,7 @@ You will need a connection string from your Azure storage account found under th
 
 ## Known Issues:
 
-1. Bug for deleting images from Database has now been fixed.
+1. Bug for deleting images from Database has now been fixed. Follow how the process [here](https://github.com/johnmcraig/Simple-Image-Gallery/issues/1).
 
 # Future Features to be Implemented
 
