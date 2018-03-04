@@ -90,11 +90,11 @@ namespace SimpleImageGallery.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(int id, GalleryImage imageToDelete, IFormCollection collection)
         {
             try
             {
-                _imageService.DeleteImage(id);
+                _imageService.DeleteImage(imageToDelete);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)

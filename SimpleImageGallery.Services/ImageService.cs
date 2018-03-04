@@ -56,12 +56,12 @@ namespace SimpleImageGallery.Services
             _dbContext.SaveChanges();
         }
 
-        public void DeleteImage(int id)
+        public void DeleteImage(GalleryImage imageToDelete)
         {
-            var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
-            var tag = _dbContext.ImageTags.FirstOrDefault(t => t.Id == id);
-            _dbContext.GalleryImages.Remove(image);
-            _dbContext.ImageTags.Remove(tag);
+            //var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
+            //var tag = _dbContext.ImageTags.FirstOrDefault(t => t.Id == id);
+            _dbContext.GalleryImages.Remove(imageToDelete);
+            //_dbContext.ImageTags.Remove(tag);
             _dbContext.SaveChanges();
         }
 
