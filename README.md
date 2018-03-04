@@ -10,7 +10,7 @@ An image gallery that connects to a Azure storage blob where all uploaded images
 4. CSS3 - some styling from a basic default App template.
 
 ## Azure Connection
-You will need a connection string from your Azure storage account found under the keys options that has to be stored s a JSON string in the User Secrets of the application.
+You will need a connection string from your Azure storage account found under the keys options that has to be stored as a JSON string in the User Secrets of the application.
 
 ## Known Issues:
 
