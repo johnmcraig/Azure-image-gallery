@@ -5,7 +5,7 @@ An image gallery that connects to a Azure storage blob where all uploaded images
 ## Tools Used:
 
 1. C#/ASP.NET Core 2.0.3.
-2. SQL Database using Entity Framework to create migrations.
+2. SQL Database with Entity Framework as our ORM.
 3. Azure Blob Storage.
 4. CSS3 - some styling from a basic default App template.
 
