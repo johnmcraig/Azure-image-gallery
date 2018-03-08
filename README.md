@@ -1,6 +1,6 @@
 # Simple-Image-Gallery
 ## A Web App that you can uplaod images!
-An image gallery as a web application using ASP.Net Core 2.0 that connects to an Azure storage blob, where all uploaded images are saved. Images can have titles that can be edited or have the entire image deleted from the database.
+An image gallery as a web application using ASP.Net Core 2.0 that connects to an Azure storage blob, where all uploaded images are saved. Images have full CRUD functionality.
 
 ## Setup and Download
 
