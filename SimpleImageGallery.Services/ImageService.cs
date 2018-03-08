@@ -95,52 +95,6 @@ namespace SimpleImageGallery.Services
                 {
                     Description = tag
                 }).ToList();
-
-            // Refactored code above :: below is old way to iterate through image tags 
-            //var tagList = tag.Split(",").ToList();
-            //var imageTags = new List<ImageTag>();
-
-            //foreach(var tag in tagList)
-            //{
-            //    imageTags.Add(new ImageTag
-            //    {
-            //        Description = tag
-            //    });
-            //}
-
-            //return imageTags;
         }
-
-        // Search Query by title and tags
-        //public async Task<IActionResult> Index(string imageTitle, string imageTag, string searchString)
-        //{
-        //    IQueryable<string> titleQuery = from i in _dbContext.
-        //                                    orderby i.Title
-        //                                    select i.Title;
-
-        //    IQueryable<string> tagQuery = from t in _dbContext.Images
-        //                                  orderby t.Tags
-        //                                  select t.Tags;
-
-        //    var images = _dbContext.Images;
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        images = images.Where(s => s.Title.Contains(searchString));
-        //    }
-
-        //    if (!String.IsNullOrEmpty(imageTitle))
-        //    {
-        //        images = images.Where(x => x.Genre == imageTitle);
-        //    }
-
-        //    var imageTitleVM = new ImageTitleViewModel
-        //    {
-        //        Title = new SelectList(await titleQuery.Distinct().ToListAsync()),
-        //        Images = await images.ToListAsync()
-        //    };
-
-        //    return View(await images.ToListAsync());
-        //}
     }
 }

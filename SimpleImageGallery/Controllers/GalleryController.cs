@@ -9,6 +9,7 @@ using SimpleImageGallery.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using SimpleImageGallery.Helpers;
 
 namespace SimpleImageGallery.Controllers
 {

@@ -1,5 +1,8 @@
-﻿using SimpleImageGallery.Data.Models;
+﻿using SimpleImageGallery.Data;
+using SimpleImageGallery.Data.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SimpleImageGallery.Models
 {
