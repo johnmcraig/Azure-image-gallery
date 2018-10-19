@@ -7,11 +7,11 @@ namespace SimpleImageGallery.Helpers
 {
     public class GalleryParams
     {
-        private const int MaxPageSize = 72;
+        private const int MaxPageSize = 36;
 
         public int PageNumber { get; set; } = 1;
 
-        private int pageSize = 36;
+        private int pageSize = 18;
 
         public int PageSize
         {

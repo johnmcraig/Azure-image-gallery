@@ -22,8 +22,11 @@ namespace SimpleImageGallery.Controllers
             _imageService = imageService; //implements the interface of IImage - add to scope service in startup
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string sortOrder, string currentfilter, string searchString, int? page)
         {
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
             var imageList = _imageService.GetAll();  // Todo: Pages using skip and range // How to show a page #
             
             var model = new GalleryIndexModel()
