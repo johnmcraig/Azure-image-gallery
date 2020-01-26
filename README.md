@@ -1,4 +1,6 @@
-# Simple-Image-Gallery
+# Azure Image Gallery
+> Image gallery with file hosting on Azure
+
 ## A Web App that you can uplaod images!
 An image gallery as a web application using ASP.Net Core 2.0 that connects to an Azure storage blob, where all uploaded images are saved. Images have full CRUD functionality.
 
@@ -19,7 +21,7 @@ In order to use this application:
 
 ## Known Issues:
 
-1. Bug for deleting images from Database has now been fixed. Follow how the process [here](https://github.com/johnmcraig/Simple-Image-Gallery/issues/1).
+1. Bug for deleting images from Database has now been fixed. Follow how the process [here](https://github.com/johnmcraig/Azure-Image-Gallery/issues/1).
 2. SimpleImageGallery.Data.csproj solution was missing a package reference for Windows Azure Storage and version. It has now been corrected with the latest push as of 3/08/2018.
 
 # Future Features to be Implemented
@@ -28,9 +30,3 @@ In order to use this application:
 - Pagination - Page numbers on the gallery if it gets larger.
 - Able to edit tags.
 - User Login and Add Roles to those users.
-
-### Thanks where thanks need to be Credited
-
-1. Wes Doyle - A freelance developer who has a tutorial to get started on this project from scratch.
-2. Jeff Ammos - instructor of CCALearn, a bootcamp I attended for six months, who helped guide me on this application.
-
