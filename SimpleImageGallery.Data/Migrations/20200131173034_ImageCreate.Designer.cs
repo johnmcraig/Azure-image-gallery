@@ -11,8 +11,8 @@ using System;
 namespace SimpleImageGallery.Data.Migrations
 {
     [DbContext(typeof(SimpleImageGalleryDbContext))]
-    [Migration("20180130030235_Initial")]
-    partial class Initial
+    [Migration("20200131173034_ImageCreate")]
+    partial class ImageCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SimpleImageGallery.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class ImageCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
