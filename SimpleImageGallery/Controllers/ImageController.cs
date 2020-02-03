@@ -11,9 +11,10 @@ namespace SimpleImageGallery.Controllers
     public class ImageController : Controller
     {
         private IConfiguration _config;
+
         private IImage _imageService;
+
         private string AzureConnectionString { get; }
-        
 
         public ImageController(IConfiguration config, IImage imageService)
         {
