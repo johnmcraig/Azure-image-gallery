@@ -1,0 +1,49 @@
+﻿@model AzureImageGallery.Models.UploadImageModel
+
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h2>New Image Upload</h2>
+
+<h4>Upload your Image here</h4>
+<hr />
+
+<div class="container body-content">
+    <div class="row upload-container">
+        <div class="upload-form drop-shadow">
+            <form asp-action="UploadNewImage" method="post" enctype="multipart/form-data" id="upload-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tags" class="control-label"></label>
+                    <input asp-for="Tags" class="form-control" />
+                    <span asp-validation-for="Tags" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="btn btn-default btn-file">
+                        Browse for an image to upload
+                        <input type="file" value="Browse for Image" name="file" style="display: none" />
+                    </label> 
+                    <div class="submit">
+                        <button type="submit" id="btn-upload" class="btn btn-info">
+                        Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row controls">
+  <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to the Gallery</a>  
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
