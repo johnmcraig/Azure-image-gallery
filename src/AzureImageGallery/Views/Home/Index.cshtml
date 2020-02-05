@@ -4,18 +4,26 @@
 }
 
 <div class="container">
-    <div class="row">
 
-        <h1 style="text-align:center">Welcome to Image Gallery</h1>
-        <p>A Imgur clone.</p>
-        <br/>
-        <h3 style="text-align:center">See the recent uploaded images below!</h3>
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Welcome to Image Gallery</h1>
+    <p><small>Inspired by Imgur, hosted on Azure</small></p>
+
+    <hr class="mt-2 mb-5">
+
+    <div class="row text-center text-lg-left">
+
+        <h3 class="font-weight-light mt-0 mb-1 pl-5">Recent submissions:</h3>
         
         <div class="body-content">
             @if (Model != null)
             {
                 @foreach (var image in Model?.Images)
                 {
+                    @* <div class="col-lg-3 col-md-4 col-6">
+                        <a class="d-block mb-4 h-100" asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
+                            <img class="img-fluid img-thumbnail" src="" alt="" style="background-image:url(@image?.Url)">
+                        </a>
+                    </div> *@
                     <div class="gallery-image-container drop-shadow">
                         <a class="img-responsive" asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
                             <div class="gallery-image" style="background-image:url(@image?.Url)"></div>
@@ -24,10 +32,9 @@
                 }
             }
         </div>
-        <br />
-        <h3>Or click the link below and view all the images in the Gallery now!</h3>
+        
         <div class="row controls">
-            <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">See the Gallery</a>
+            <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">To Gallery</a>
         </div>
     </div>
 </div>
