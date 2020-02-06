@@ -11,7 +11,7 @@ An image gallery as a web application using ASP.Net Core 2.0 that connects to an
 In order to use this application:
 
 1. Download the zip file or `git clone` the repo.
-2. Then, gather any missing NuGet packages and restore the project files using the DotNet command `restore` (or Build in Visiaul Studio).
+2. Then, gather any missing NuGet packages and restore the project files using the DotNet command `restore` (or Build in Visual Studio).
 3. Afterwards, you will need to have an Azure account that has initialized Blob Storage. Get the connection string from the account info under keys, then pass them in the User Secrets as:
 `{ "AzureStorageConnectionString": "YourActualKey" }`.
 4. Make sure you use either Visual Studio Secret Manager or the `dotnet` command line to add the above JSON object (from point #3.) so the CloudStorage class and methods can connect using that string.
