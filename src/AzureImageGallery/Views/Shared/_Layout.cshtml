@@ -19,14 +19,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 justify-content-center">
                         <li class="nav-item">
-                            <button class="btn btn-outline-light ml-2">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Gallery" asp-action="Index">Full Gallery</a>
-                            </button>
+                            <a class="nav-link text-light btn btn-outline-light ml-2" asp-area="" asp-controller="Gallery" asp-action="Index">Full Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <button class="btn btn-outline-light ml-2">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Image" asp-action="Upload">Upload</a>
-                            </button>
+                            <a class="nav-link text-light btn btn-outline-light ml-2" asp-area="" asp-controller="Image" asp-action="Upload">Upload</a>   
                         </li>
                     </ul>
                 </div>
@@ -38,6 +34,7 @@
             @RenderBody()
         </main>
     </div>
+    
      <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - AzureImageGallery
