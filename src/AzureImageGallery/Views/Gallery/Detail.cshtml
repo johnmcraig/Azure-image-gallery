@@ -5,26 +5,26 @@
 }
 
 
-<div class="container body-content">
-    <div class="row image-detail-container">
-        <div class="image-detail">
+<div class="container">
+    <div class="row">
+        <div class="col-12 image-detail">
             <img src="@Model.Url" alt="@Model.Title" />
         </div>
 
-        <div class="row image-detail-meta">
-            <span>Title: @Model.Title</span>
-            <span>Uploaded: @Model.Created</span>
+        <div class="col-12 image-detail-meta">
+            <p>Title: @Model.Title</p>
+            <p>Uploaded: @Model.Created</p>
         </div>
 
-        <div class="row controls">
+        <div class="col-3 col-sm-12 col-12 controls">
             <span>
-                <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to the Gallery</a>
+                <a class="btn btn-primary mr-2 mt-2" asp-controller="Gallery" asp-action="Index">Back to Gallery</a>
             </span>
             <span>
-                <a class="btn btn-danger" asp-controller="Gallery" asp-action="Delete" asp-route-id=@Model.Id>Delete this Image</a>
+                <a class="btn btn-danger mr-2 mt-2" asp-controller="Gallery" asp-action="Delete" asp-route-id=@Model.Id>Delete Image</a>
             </span>
             <span>
-                <a class="btn btn-default" asp-controller="Gallery" asp-action="Edit" asp-route-id=@Model.Id>Edit the title of the Image</a>
+                <a class="btn btn-success mr-2 mt-2" asp-controller="Gallery" asp-action="Edit" asp-route-id=@Model.Id>Edit Image</a>
             </span>
         </div>
     </div>
