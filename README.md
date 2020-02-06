@@ -4,7 +4,7 @@
 
 ## Scope
 
-An image gallery as a web application using ASP.Net Core 2.0 that connects to an Azure storage blob, where all uploaded images are saved. Images have full CRUD functionality.
+An image gallery as a web application using ASP.Net Core 2.0 that connects to an Azure blob storage, where all uploaded images are saved. Images have full CRUD functionality.
 
 ## Setup and Download
 
@@ -27,16 +27,11 @@ The required NuGet Packages:
 1. C#/ASP.NET Core 2.0.9.
 2. SQL Database with Entity Framework.
 3. Azure Blob Storage.
-4. HTML5, CSS3, and Bootstrap 3.3.7
-
-## Known Issues
-
-1. Bug for deleting images from Database has now been fixed. Follow how the process [here](https://github.com/johnmcraig/Azure-Image-Gallery/issues/1).
-2. SimpleImageGallery.Data.csproj solution was missing a package reference for Windows Azure Storage and version. It has now been corrected with the latest push as of 3/08/2018.
+4. HTML5, CSS3, and Bootstrap 4.3.1
 
 ## Future Features to be Implemented
 
 - A Search Query to find images by Title and Tag strings.
-- Pagination - Page numbers on the gallery if it gets larger.
-- Able to edit tags.
-- User Login and Add Roles to those users.
+- Sorting and Pagination - Page numbers on the gallery if it gets larger.
+- Be able to edit tags.
+- User Login and User Roles.
