@@ -5,10 +5,18 @@
     <div class="row gallery-content">
         @foreach (var image in Model.Images)
         {
-            <div class="gallery-image-container drop-shadow">
-                <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image.Id">
-                    <div class="gallery-image" style="background-image:url(@image.Url)"></div>
-                </a>
+            @* try using embed-responsive embed-responsive-16by9 in anchor tag *@
+            <div class="col-md-3 col-sm-12 col-12">
+                <div class="card mb-2">
+                    <a class="" asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
+                        <img src="@image.Url" alt="Azure Cloud Hosted Image" title="@image.Title" class="card-img-top img-fluid img-thumbnail" 
+                        style="width: 100%;height: 15vw;object-fit: cover;">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@image.Title</h5>
+                        <p class="card-text">@image.Created</p>
+                    </div>
+                </div>
             </div>
         }
     </div>
