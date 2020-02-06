@@ -2,6 +2,8 @@
 
 > Image gallery with file hosting on Azure
 
+![Screenshot](resources/ImageGallery.png)
+
 ## Scope
 
 An image gallery as a web application using ASP.Net Core 2.0 that connects to an Azure blob storage, where all uploaded images are saved. Images have full CRUD functionality.
