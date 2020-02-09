@@ -17,12 +17,21 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    @* login credientials -- refactor into partial  *@
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1">Login</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav flex-grow-1 justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link text-light btn btn-outline-light ml-2 mb-1" asp-area="" asp-controller="Gallery" asp-action="Index">Full Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1" asp-area="" asp-controller="Image" asp-action="Upload">Upload</a>   
+                            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1" asp-area="" asp-controller="Image" asp-action="Upload">Upload</a>
                         </li>
                     </ul>
                 </div>
