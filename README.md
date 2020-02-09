@@ -47,5 +47,5 @@ In order to use this application:
 ## Future Features to be Implemented
 
 - User Login and User Roles.
-- A Search Query to find images by Title and Tag strings.
+- A Search Query to find images by Title and Tags.
 - Able to edit tags.
