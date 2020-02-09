@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AzureImageGallery.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AzureImageGallery.Data
 {
-    public class AzureImageGalleryDbContext : DbContext
+    public class AzureImageGalleryDbContext : IdentityDbContext<AppUser>
     {
         public AzureImageGalleryDbContext(DbContextOptions options) : base(options)
         {
@@ -11,5 +12,10 @@ namespace AzureImageGallery.Data
 
         public DbSet<GalleryImage> GalleryImages { get; set; }
         public DbSet<ImageTag> ImageTags { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }
