@@ -11,17 +11,16 @@ namespace AzureImageGallery.Controllers
 
         public HomeController(IImage imageService)
         {
-            _imageService = imageService; //implements the interface of IImage - add to scope service in startup
+            _imageService = imageService;
         }
 
         public IActionResult Index()
         {
-            var imageList = _imageService.Range(0,6);
+            var imageList = _imageService.Range(0,12);
 
             var model = new GalleryIndexModel()
             {
-                Images = imageList,
-                
+                Images = imageList
             };
 
             return View(model);
