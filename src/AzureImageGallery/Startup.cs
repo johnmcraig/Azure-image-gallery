@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using AzureImageGallery.Services;
 using AzureImageGallery.Data.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Azure;
 
 namespace SimpleImageGallery
 {
@@ -32,6 +33,17 @@ namespace SimpleImageGallery
             services.AddScoped<IImage, ImageService>();
             services.AddMvc();
 
+            services.AddAzureClients(builder =>
+            {
+                builder.AddBlobServiceClient(Configuration["ConnectionStrings:connectionString"]);
+            });
+
+            //services.AddIdentity<AppUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<AzureImageGalleryDbContext>()
+            //    .AddDefaultTokenProviders();
+
+            //services.AddAuthentication();
+
             //var builder = services.AddIdentityCore<AppUser>();
             //var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
             //identityBuilder.AddEntityFrameworkStores<AzureImageGalleryDbContext>();
@@ -51,7 +63,10 @@ namespace SimpleImageGallery
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
+
+            //app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
