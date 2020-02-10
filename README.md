@@ -4,6 +4,10 @@
 
 ![Screenshot](resources/ImageGallery.png)
 
+## Demo
+
+See a demo of the application at the following link: [AzureImageGalleryDemo](https://tinyurl.com/unpbyrp)
+
 ## Scope
 
 This is a full stack application using HTML5, CSS3, Bootstrap 4 and C#/ASP.Net Core as an image gallery that stores files to an Azure blob, where all uploaded images are saved. Images have full create, edit, and delete functionality.
