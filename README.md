@@ -43,10 +43,10 @@ In order to use this application:
 
 ## Technologies
 
-1. C#/ASP.NET Core 2.0.9.
-2. SQL Database with Entity Framework.
+1. C#/ASP.NET Core 3.1.1.
+2. SQL Server Database with Entity Framework Core.
 3. Azure Blob Storage.
-4. HTML5, CSS3, and Bootstrap 4.3.1
+4. HTML5, CSS3, and Bootstrap 4.3.1.
 
 ## Future Features to be Implemented
 
