@@ -12,6 +12,7 @@ using AzureImageGallery.Services;
 using AzureImageGallery.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Hosting;
 
 namespace SimpleImageGallery
 {
@@ -31,7 +32,8 @@ namespace SimpleImageGallery
                 .GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IImage, ImageService>();
-            services.AddMvc();
+
+            services.AddControllersWithViews();
 
             services.AddAzureClients(builder =>
             {
@@ -42,21 +44,20 @@ namespace SimpleImageGallery
             //    .AddEntityFrameworkStores<AzureImageGalleryDbContext>()
             //    .AddDefaultTokenProviders();
 
-            //services.AddAuthentication();
+            services.AddAuthentication();
 
-            //var builder = services.AddIdentityCore<AppUser>();
-            //var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
-            //identityBuilder.AddEntityFrameworkStores<AzureImageGalleryDbContext>();
-            //identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+            var builder = services.AddIdentityCore<AppUser>();
+            var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+            identityBuilder.AddEntityFrameworkStores<AzureImageGalleryDbContext>();
+            identityBuilder.AddSignInManager<SignInManager<AppUser>>();
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
             }
             else
             {
@@ -66,13 +67,15 @@ namespace SimpleImageGallery
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
 
+            app.UseRouting();
+
             //app.UseAuthentication();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
