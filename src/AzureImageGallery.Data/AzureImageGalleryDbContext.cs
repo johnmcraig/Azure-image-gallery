@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AzureImageGallery.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace AzureImageGallery.Data
 {
-    public class AzureImageGalleryDbContext : IdentityDbContext<AppUser>
+    public class AzureImageGalleryDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {
         public AzureImageGalleryDbContext(DbContextOptions options) : base(options)
         {
