@@ -6,7 +6,7 @@ using System;
 
 namespace AzureImageGallery.Data
 {
-    public class AzureImageGalleryDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
+    public class AzureImageGalleryDbContext : IdentityDbContext<AppUser>
     {
         public AzureImageGalleryDbContext(DbContextOptions options) : base(options)
         {
