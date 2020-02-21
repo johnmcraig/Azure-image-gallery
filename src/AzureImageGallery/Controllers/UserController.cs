@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using AzureImageGallery.Data.Models;
 using AzureImageGallery.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,8 @@ namespace AzureImageGallery.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -41,6 +44,37 @@ namespace AzureImageGallery.Controllers
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
+                } 
+                else 
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt");
+                }
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(
+                    model.Email,
+                    model.Password,
+                    model.RememberMe,
+                    lockoutOnFailure: false);
+
+                if(result.Succeeded)
+                {
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
             }
