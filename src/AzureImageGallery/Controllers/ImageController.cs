@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using AzureImageGallery.Data;
 using AzureImageGallery.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AzureImageGallery.Controllers
 {
+    [Authorize]
     public class ImageController : Controller
     {
         private IConfiguration _config;
@@ -30,7 +32,6 @@ namespace AzureImageGallery.Controllers
             return View(model);
         }
 
-        // Post Method
         [HttpPost]
         public async Task<IActionResult> UploadNewImage(IFormFile file, string title, string tags)
         {
@@ -52,7 +53,7 @@ namespace AzureImageGallery.Controllers
             // use the imageService to set the Image that is uploaded and pass the title, tags, and location from the Block Blob (method refrenced in ImageService data library)
             await _imageService.SetImage(title, tags, blockBlob.Uri);
 
-            return RedirectToAction("Index", "Gallery");
+            return RedirectToAction(nameof(GalleryController.Index), "Gallery");
         }
     }
 }
