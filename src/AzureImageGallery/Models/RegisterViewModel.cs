@@ -9,6 +9,9 @@ namespace AzureImageGallery.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Display(Name = "Display Name")]
+        public string DisplayName { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and a max of {1} characters long")]
         [DataType(DataType.Password)]
