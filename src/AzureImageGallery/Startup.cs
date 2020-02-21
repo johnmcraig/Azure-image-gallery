@@ -40,16 +40,21 @@ namespace SimpleImageGallery
                 builder.AddBlobServiceClient(Configuration["ConnectionStrings:connectionString"]);
             });
 
-            //services.AddIdentity<AppUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<AzureImageGalleryDbContext>()
-            //    .AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, IdentityRole<Guid>>()
+               .AddEntityFrameworkStores<AzureImageGalleryDbContext>();
+            //.AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/User/Login";
+            });
 
             services.AddAuthentication();
 
-            var builder = services.AddIdentityCore<AppUser>();
-            var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
-            identityBuilder.AddEntityFrameworkStores<AzureImageGalleryDbContext>();
-            identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+            // var builder = services.AddIdentityCore<AppUser>();
+            // var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+            // identityBuilder.AddEntityFrameworkStores<AzureImageGalleryDbContext>();
+            // identityBuilder.AddSignInManager<SignInManager<AppUser>>();
 
         }
 
@@ -69,7 +74,8 @@ namespace SimpleImageGallery
 
             app.UseRouting();
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
