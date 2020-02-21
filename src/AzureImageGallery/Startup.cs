@@ -40,9 +40,10 @@ namespace SimpleImageGallery
                 builder.AddBlobServiceClient(Configuration["ConnectionStrings:connectionString"]);
             });
 
-            services.AddIdentity<AppUser, IdentityRole<Guid>>()
-               .AddEntityFrameworkStores<AzureImageGalleryDbContext>();
-            //.AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, IdentityRole>()
+               .AddEntityFrameworkStores<AzureImageGalleryDbContext>()
+               .AddSignInManager<SignInManager<AppUser>>()
+               .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options =>
             {
