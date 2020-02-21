@@ -81,5 +81,11 @@ namespace AzureImageGallery.Controllers
 
             return View(model);
         }
+
+        public async Task<ActionResult> SignOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Login));
+        }
     }
 }
