@@ -12,17 +12,17 @@
         </li>
         <li class="nav-item">
             <a class="nav-link text-light btn btn-outline-light ml-2 mb-1"
-                asp-area="" asp-page="" title="">Login
+                asp-action="SignOut" asp-controller="User" title="">Sign Out
             </a>
         </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1">Register</a>
+            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1" asp-action="Register" asp-controller="User">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1">Login</a>
+            <a class="nav-link text-light btn btn-outline-light ml-2 mb-1" asp-action="Login" asp-controller="User">Login</a>
         </li>
     }
 </ul>
