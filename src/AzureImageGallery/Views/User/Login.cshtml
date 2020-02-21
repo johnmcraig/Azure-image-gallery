@@ -1,0 +1,38 @@
+@model AzureImageGallery.Models.LoginViewModel
+
+@{
+    ViewData["Title"]= "Login";
+}
+
+<div class="container">
+
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">
+        Login
+    </h1>
+
+    <hr class="mt-2 mb-5" />
+
+    <div class="row">
+        <form method="post">
+            <div class="form-group">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" type="text" placeholder="Enter Email..."/>
+
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" type="password" placeholder="Enter Password..."/>
+
+                <p>
+                    <label asp-for="RememberMe">
+                        <input type="checkbox" asp-for="RememberMe" />
+                        <span>@Html.DisplayNameFor(m => m.RememberMe)</span>
+                    </label>
+                </p>
+
+                <button class="btn btn-primary mr-2 mt-2" type="submit">Log in</button>
+            </div>
+        </form>
+    </div>
+
+</div>
