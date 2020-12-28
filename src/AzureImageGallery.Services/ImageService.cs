@@ -18,6 +18,7 @@ namespace AzureImageGallery.Services
         {
             _dbContext = dbContext;
         }
+
         public IEnumerable<GalleryImage> GetAll()
         {
             return _dbContext.GalleryImages
@@ -25,6 +26,7 @@ namespace AzureImageGallery.Services
                     .OrderByDescending(i => i.Created)
                     .ToList();
         }
+        
         // Only call down a range of images
         public IEnumerable<GalleryImage> Range(int skip, int take)
         {
@@ -56,12 +58,11 @@ namespace AzureImageGallery.Services
             _dbContext.SaveChanges();
         }
 
-        public void DeleteImage(GalleryImage imageToDelete)
+        public void DeleteImage(int id)
         {
-            //var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
-            //var tag = _dbContext.ImageTags.FirstOrDefault(t => t.Id == id);
-            _dbContext.GalleryImages.Remove(imageToDelete);
-            //_dbContext.ImageTags.Remove(tag);
+            var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
+            var tag = image.Tags.AsQueryable().ToList();
+            _dbContext.GalleryImages.Remove(image);
             _dbContext.SaveChanges();
         }
 
@@ -78,7 +79,7 @@ namespace AzureImageGallery.Services
             var image = new GalleryImage
             {
                 Title = title,
-                Tags = ParseTags(tags), // handle tags that are null/empty :: Pass them as a form as a comma seperated from the list
+                Tags = ParseTags(tags), // handle tags that are null. Pass them as a form as a comma seperated from the list
                 Url = uri.AbsoluteUri,
                 Created = DateTime.Now
             };
@@ -89,8 +90,7 @@ namespace AzureImageGallery.Services
 
         public List<ImageTag> ParseTags(string tags)
         {
-
-              return tags.Split(", ") //allows for comma seperation on multiple string values
+              return tags.Split(", ")
                 .Select(tag => new ImageTag
                 {
                     Description = tag
