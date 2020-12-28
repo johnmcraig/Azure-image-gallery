@@ -17,12 +17,9 @@ namespace AzureImageGallery.Controllers
             _imageService = imageService;
         }
 
-        public IActionResult Index(string sortOrder, string currentfilter, string searchString, int? page)
+        public IActionResult Index()
         {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-
-            var imageList = _imageService.GetAll();  // Todo: Pages using skip and range // How to show a page #
+            var imageList = _imageService.GetAll();
             
             var model = new GalleryIndexModel()
             {
@@ -57,7 +54,6 @@ namespace AzureImageGallery.Controllers
             return View(imageToEdit);
         }
 
-        //Post
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, GalleryImage changeImage)
@@ -86,14 +82,20 @@ namespace AzureImageGallery.Controllers
             return View(_imageService.GetById(id));
         }
 
-        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, GalleryImage imageToDelete, IFormCollection collection)
+        public IActionResult Delete(int id, IFormCollection collection)
         {
+            var image = _imageService.GetById(id);
+            
+            if(image == null)
+            {
+                return NotFound();
+            }
+
             try
             {
-                _imageService.DeleteImage(imageToDelete);
+                _imageService.DeleteImage(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)
