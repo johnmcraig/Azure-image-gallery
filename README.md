@@ -50,6 +50,5 @@ In order to use this application:
 
 ## Future Features to be Implemented
 
-- User Login and User Roles.
-- A Search Query to find images by Title and Tags.
+- User Roles.
 - Able to edit tags.
