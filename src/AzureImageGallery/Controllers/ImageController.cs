@@ -50,7 +50,7 @@ namespace AzureImageGallery.Controllers
             // upload the block blob and file then make it asyncroness. This is a method that passes the file to the OpenReadStream
             await blockBlob.UploadFromStreamAsync(file.OpenReadStream());
 
-            // use the imageService to set the Image that is uploaded and pass the title, tags, and location from the Block Blob (method refrenced in ImageService data library)
+            // use the imageService to set the Image that is uploaded and pass the title, tags, and location from the Block Blob (method referenced in ImageService data library)
             await _imageService.SetImage(title, tags, blockBlob.Uri);
 
             return RedirectToAction(nameof(GalleryController.Index), "Gallery");
