@@ -18,6 +18,7 @@ namespace AzureImageGallery.Services
         {
             _dbContext = dbContext;
         }
+
         public IEnumerable<GalleryImage> GetAll()
         {
             return _dbContext.GalleryImages
@@ -25,6 +26,7 @@ namespace AzureImageGallery.Services
                     .OrderByDescending(i => i.Created)
                     .ToList();
         }
+        
         // Only call down a range of images
         public IEnumerable<GalleryImage> Range(int skip, int take)
         {
