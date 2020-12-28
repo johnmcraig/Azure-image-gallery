@@ -25,6 +25,6 @@ namespace AzureImageGallery.Data
 
         void UpdateImage(GalleryImage changeImage);
 
-        void DeleteImage(GalleryImage imageToDelete);
+        void DeleteImage(int id);
     }
 }
