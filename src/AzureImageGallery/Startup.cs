@@ -51,12 +51,6 @@ namespace SimpleImageGallery
             });
 
             services.AddAuthentication();
-
-            // var builder = services.AddIdentityCore<AppUser>();
-            // var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
-            // identityBuilder.AddEntityFrameworkStores<AzureImageGalleryDbContext>();
-            // identityBuilder.AddSignInManager<SignInManager<AppUser>>();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
