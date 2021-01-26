@@ -17,16 +17,20 @@ namespace AzureImageGallery.Controllers
             _imageService = imageService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNumber)
         {
-            var imageList = _imageService.GetAll();
+            if (pageNumber < 1)
+                return RedirectToAction("Index", new { pageNumber = 1 });
+
+            var imageList = _imageService.GetAllWithPaging(pageNumber);
             
-            var model = new GalleryIndexModel()
+            var viewModel = new GalleryIndexModel()
             {
+                PageNumber = pageNumber,
                 Images = imageList
             };
 
-            return View(model);
+            return View(viewModel);
         }
 
         public IActionResult Detail(int id)
