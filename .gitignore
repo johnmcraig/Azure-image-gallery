@@ -293,3 +293,4 @@ appsettings.Development.json
 src/AzureImageGallery/appsettings.json
 src/AzureImageGallery/Connected Services/AzureStorage1/ConnectedService.json
 src/AzureImageGallery/.config/dotnet-tools.json
+/src/AzureImageGallery/Properties/ServiceDependencies/azureimagegallery - Web Deploy/profile.arm.json
