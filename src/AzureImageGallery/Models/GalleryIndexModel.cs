@@ -5,6 +5,7 @@ namespace AzureImageGallery.Models
 {
     public class GalleryIndexModel
     {
+        public int PageNumber { get; set; }
         public IEnumerable<GalleryImage> Images { get; set; }
         public string SearchQuery { get; set; }
     }
