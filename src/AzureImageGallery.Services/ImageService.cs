@@ -26,7 +26,19 @@ namespace AzureImageGallery.Services
                     .OrderByDescending(i => i.Created)
                     .ToList();
         }
-        
+
+        public IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber)
+        {
+            int pageSize = 25;
+            int pageCount = _dbContext.GalleryImages.Count() / pageSize;
+            return _dbContext.GalleryImages
+                    .Include(i => i.Tags)
+                    .OrderByDescending(i => i.Created)
+                    .Skip(pageSize * (pageNumber - 1))
+                    .Take(pageSize)
+                    .ToList();
+        }
+
         // Only call down a range of images
         public IEnumerable<GalleryImage> Range(int skip, int take)
         {
