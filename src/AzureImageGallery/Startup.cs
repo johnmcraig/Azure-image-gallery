@@ -40,7 +40,7 @@ namespace SimpleImageGallery
                 builder.AddBlobServiceClient(Configuration["ConnectionStrings:connectionString"]);
             });
 
-            services.AddIdentity<AppUser, IdentityRole>()
+            services.AddIdentity<AppUser, IdentityRole<Guid>>()
                .AddEntityFrameworkStores<AzureImageGalleryDbContext>()
                .AddSignInManager<SignInManager<AppUser>>()
                .AddDefaultTokenProviders();
