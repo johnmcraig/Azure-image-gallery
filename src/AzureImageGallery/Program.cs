@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AzureImageGallery.Data;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -13,9 +16,29 @@ namespace SimpleImageGallery
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            using(var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+
+                try
+                {
+                    var dbContext = services.GetRequiredService<AzureImageGalleryDbContext>();
+                    await dbContext.Database.MigrateAsync();
+                    //await Seed.SeedData(dbContext);
+                }
+                catch (Exception ex)
+                {
+                    var logger = loggerFactory.CreateLogger<Program>();
+                    logger.LogError($"Could not create or migrate database, see full error: {ex}");
+                }
+            }
+            
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
