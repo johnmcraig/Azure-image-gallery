@@ -25,9 +25,9 @@
 <div>
     @if(Model.PageNumber > 1 )
     {
-        <a asp-action="Index" asp-controller="Gallery" asp-route-pageNumer="@(Model.PageNumber - 1)">Previous</a>
+        <a asp-action="Index" asp-controller="Gallery" asp-route-pageNumber="@(Model.PageNumber - 1)">Previous</a>
     }  
-    <a asp-action="Index" asp-controller="Gallery" asp-route-pageNumer="@(Model.PageNumber + 1)">Next</a>
+    <a asp-action="Index" asp-controller="Gallery" asp-route-pageNumber="@(Model.PageNumber + 1)">Next</a>
 </div>
 @*@{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
