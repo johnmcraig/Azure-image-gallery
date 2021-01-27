@@ -20,7 +20,6 @@ namespace AzureImageGallery.Helpers
             CurrentPage = pageNumber;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
             AddRange(items);
-
         }
 
         public bool HasPreviousPage
@@ -48,7 +47,6 @@ namespace AzureImageGallery.Helpers
                 .ToListAsync();
 
             return new PaginatedList<T>(items, count, pageNumber, pageSize);
-
         }
     }
 }
