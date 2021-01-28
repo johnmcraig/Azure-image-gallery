@@ -37,7 +37,7 @@ namespace SimpleImageGallery
 
             services.AddAzureClients(builder =>
             {
-                builder.AddBlobServiceClient(Configuration.GetConnectionString("connectionString"));
+                builder.AddBlobServiceClient(Configuration["ConnectionStrings:connectionString"]);
             });
 
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
