@@ -29,12 +29,16 @@ namespace AzureImageGallery.Services
 
         public IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber)
         {
-            int pageSize = 25;
-            int pageCount = _dbContext.GalleryImages.Count() / pageSize;
+            int pageSize = 10;
+            int skip = pageSize * (pageNumber - 1);
+            int pageCount = _dbContext.GalleryImages.Count();
+            int capacity = skip + pageSize;
+            bool hasNext = pageCount > capacity;
+
             return _dbContext.GalleryImages
                     .Include(i => i.Tags)
                     .OrderByDescending(i => i.Created)
-                    .Skip(pageSize * (pageNumber - 1))
+                    .Skip(skip)
                     .Take(pageSize)
                     .ToList();
         }
@@ -66,7 +70,7 @@ namespace AzureImageGallery.Services
 
         public void UpdateImage(GalleryImage changeImage)
         {
-            _dbContext.Entry<GalleryImage>(changeImage).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _dbContext.Entry(changeImage).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
 
