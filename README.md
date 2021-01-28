@@ -6,10 +6,10 @@ Azure Image Gallery
 
 <div align="center">
 
-![visitors](https://vistr.dev/badge?repo=johnmcraig.blazor-book-shop)
-![stars](https://img.shields.io/github/stars/johnmcraig/blazor-book-shop?style=flat-square&cacheSeconds=604800)
-![last commit](https://img.shields.io/github/last-commit/johnmcraig/blazor-book-shop?style=flat-square&cacheSeconds=86400)
-![pull requests](https://img.shields.io/github/issues-pr/johnmcraig/blazor-book-shop?color=0088ff)
+![visitors](https://vistr.dev/badge?repo=johnmcraig.Azure-image-gallery)
+![stars](https://img.shields.io/github/stars/johnmcraig/Azure-image-gallery?style=flat-square&cacheSeconds=604800)
+![last commit](https://img.shields.io/github/last-commit/johnmcraig/Azure-image-gallery?style=flat-square&cacheSeconds=86400)
+![pull requests](https://img.shields.io/github/issues-pr/johnmcraig/Azure-image-gallery?color=0088ff)
 
 </div>
 
