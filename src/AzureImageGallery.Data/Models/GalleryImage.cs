@@ -11,9 +11,9 @@ namespace AzureImageGallery.Data.Models
         public string Title { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime Created { get; set; } // Publush date
+        public DateTime Created { get; set; }
 
-        public string Url { get; set; } // images are hosted on Azure Blob storage "cloud", so we need to access the images through a Url that points to the blobs.
+        public string Url { get; set; } // images are hosted on blob storage, so we need to access the images through an Url that points to the blobs.
         
         public virtual IEnumerable<ImageTag> Tags { get; set; }
     }
