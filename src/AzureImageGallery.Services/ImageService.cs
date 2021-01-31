@@ -29,7 +29,7 @@ namespace AzureImageGallery.Services
 
         public IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 12;
             int skip = pageSize * (pageNumber - 1);
             int pageCount = _dbContext.GalleryImages.Count();
             int capacity = skip + pageSize;
