@@ -28,7 +28,7 @@ namespace AzureImageGallery.Controllers
             }
 
             var imageList = _imageService.GetAllWithPaging(pageNumber);
-            
+
             var viewModel = new GalleryIndexModel()
             {
                 PageNumber = pageNumber,

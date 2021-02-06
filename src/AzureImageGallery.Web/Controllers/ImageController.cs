@@ -12,9 +12,9 @@ namespace AzureImageGallery.Controllers
     [Authorize]
     public class ImageController : Controller
     {
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
 
-        private IImage _imageService;
+        private readonly IImage _imageService;
 
         private string AzureConnectionString { get; }
 
@@ -22,7 +22,7 @@ namespace AzureImageGallery.Controllers
         {
             _config = config;
             _imageService = imageService;
-            AzureConnectionString = _config["AzureStorageConnectionString"];   
+            AzureConnectionString = _config["AzureStorageConnectionString"];
         }
 
         public IActionResult Upload()
