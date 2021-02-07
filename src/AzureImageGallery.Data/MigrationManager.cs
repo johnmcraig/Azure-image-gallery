@@ -28,6 +28,7 @@ namespace AzureImageGallery.Data
                     }
                 }
             }
+
             return host;
         }
     }
