@@ -1,4 +1,4 @@
-﻿@model PaginatedList<GalleryDetailModel>
+﻿@model PagedList<GalleryDetailModel>
 
 
 <div class="container body-content">
@@ -23,17 +23,24 @@
 </div>
 
 <div>
-    @{ 
-        var disablePrevious = !Model.HasPrevious ? "disabled" : "";
-        var disableNext = !Model.HasNext ? "disable" : "";
-    }
-        <a asp-action="Index" 
-           asp-controller="Gallery" 
+    <nav class="pagination justify-content-center">
+        @{
+            var disablePrevious = !Model.HasPrevious ? "disabled" : "";
+            var disableNext = !Model.HasNext ? "disabled" : "";
+        }
+        <a asp-action="Index"
+           asp-controller="Gallery"
            asp-route-pageNumber="@(Model.CurrentPage - 1)"
-           class="btn btn-primary @disablePrevious">Previous</a>
+           class="page-link @disablePrevious"><< Previous</a>
 
-        <a asp-action="Index" 
-           asp-controller="Gallery" 
+        @for(int i = 1; i <= Model.TotalPages; i++)
+        {
+            <a asp-action="Index" asp-controller="Gallery" class="page-link" asp-route-pageNumber="@i">@i</a>
+        }
+
+        <a asp-action="Index"
+           asp-controller="Gallery"
            asp-route-pageNumber="@(Model.CurrentPage + 1)"
-           class="btn btn-primary @disableNext">Next</a>
+           class="page-link @disableNext">Next >></a>
+    </nav>
 </div>
