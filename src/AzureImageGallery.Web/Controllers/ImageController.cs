@@ -4,10 +4,10 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using AzureImageGallery.Data;
-using AzureImageGallery.Models;
+using AzureImageGallery.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AzureImageGallery.Controllers
+namespace AzureImageGallery.Web.Controllers
 {
     [Authorize]
     public class ImageController : Controller

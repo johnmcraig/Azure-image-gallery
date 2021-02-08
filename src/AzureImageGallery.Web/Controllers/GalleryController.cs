@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using AzureImageGallery.Data.Models;
 using AzureImageGallery.Data;
-using AzureImageGallery.Models;
+using AzureImageGallery.Web.Models;
 using Microsoft.Extensions.Logging;
+using AzureImageGallery.Web.Helpers;
+using System.Collections.Generic;
 
-namespace AzureImageGallery.Controllers
+namespace AzureImageGallery.Web.Controllers
 {
     public class GalleryController : Controller
     {
@@ -20,22 +22,29 @@ namespace AzureImageGallery.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(int pageNumber)
+        public ActionResult<PaginatedList<GalleryDetailModel>> Index(int pageNumber = 1, int pageSize = 12)
         {
             if (pageNumber < 1)
             {
                 return RedirectToAction("Index", new { pageNumber = 1 });
-            }
-
-            var imageList = _imageService.GetAllWithPaging(pageNumber);
-
-            var viewModel = new GalleryIndexModel()
-            {
-                PageNumber = pageNumber,
-                Images = imageList
             };
 
-            return View(viewModel);
+            var imageList = _imageService.GetAll().Select(images => new GalleryDetailModel
+            {
+                 Id = images.Id,
+                 Title = images.Title,
+                 Created = images.Created,
+                 Url = images.Url
+            }).ToList();
+
+            //var images = new GalleryIndexModel
+            //{
+            //    Images = imageList,
+            //    PageNumber = pageNumber,
+            //    PageCount = pageSize
+            //};
+
+            return View((imageList, pageNumber, pageSize));
         }
 
         public IActionResult Detail(int id)

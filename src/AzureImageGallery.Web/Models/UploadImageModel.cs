@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace AzureImageGallery.Models
+namespace AzureImageGallery.Web.Models
 {
     public class UploadImageModel
     {

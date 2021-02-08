@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
-namespace AzureImageGallery.Models
+namespace AzureImageGallery.Web.Models
 {
     public class ImageTitleViewModel
     {

@@ -23,13 +23,13 @@ namespace AzureImageGallery.Services
         {
             return _dbContext.GalleryImages
                     .Include(i => i.Tags)
+                    .AsNoTracking()
                     .OrderByDescending(i => i.Created)
                     .ToList();
         }
 
-        public IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber)
+        public IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber, int pageSize)
         {
-            int pageSize = 12;
             int skip = pageSize * (pageNumber - 1);
             int pageCount = _dbContext.GalleryImages.Count();
             int capacity = skip + pageSize;

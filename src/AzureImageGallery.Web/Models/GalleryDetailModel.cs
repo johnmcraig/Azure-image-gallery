@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-    //<summary> 
-    //This is a 1:1 mapping of the GelleryImage Object in SimpleImaeGellery.Data
-    //<summary>
-namespace AzureImageGallery.Models
+//<summary> 
+//This is a 1:1 mapping of the GelleryImage Object in SimpleImaeGellery.Data
+//<summary>
+namespace AzureImageGallery.Web.Models
 {
     public class GalleryDetailModel
     {

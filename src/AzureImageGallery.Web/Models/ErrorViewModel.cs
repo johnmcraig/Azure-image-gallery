@@ -1,4 +1,4 @@
-namespace AzureImageGallery.Models
+namespace AzureImageGallery.Web.Models
 {
     public class ErrorViewModel
     {

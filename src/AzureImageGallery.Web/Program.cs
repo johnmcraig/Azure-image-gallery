@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace SimpleImageGallery
+namespace AzureImageGallery.Web
 {
     public class Program
     {

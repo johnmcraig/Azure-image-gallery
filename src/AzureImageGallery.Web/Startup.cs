@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Hosting;
 
-namespace SimpleImageGallery
+namespace AzureImageGallery.Web
 {
     public class Startup
     {

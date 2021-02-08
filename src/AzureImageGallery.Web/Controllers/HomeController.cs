@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using AzureImageGallery.Data;
-using AzureImageGallery.Models;
+using AzureImageGallery.Web.Models;
 
-namespace AzureImageGallery.Controllers
+namespace AzureImageGallery.Web.Controllers
 {
     public class HomeController : Controller
     {

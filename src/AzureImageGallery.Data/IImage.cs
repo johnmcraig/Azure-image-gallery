@@ -11,7 +11,7 @@ namespace AzureImageGallery.Data
     {
         IEnumerable<GalleryImage> GetAll();
 
-        IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber);
+        IEnumerable<GalleryImage> GetAllWithPaging(int pageNumber, int pageSize);
 
         IEnumerable<GalleryImage> GetWithTag(string tag);
 

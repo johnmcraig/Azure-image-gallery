@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AzureImageGallery.Models
+namespace AzureImageGallery.Web.Models
 {
     public class LoginViewModel
     {

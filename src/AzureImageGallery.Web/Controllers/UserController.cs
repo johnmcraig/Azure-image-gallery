@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 using AzureImageGallery.Data.Models;
-using AzureImageGallery.Models;
+using AzureImageGallery.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AzureImageGallery.Controllers
+namespace AzureImageGallery.Web.Controllers
 {
     public class UserController : Controller
     {
