@@ -22,7 +22,7 @@ namespace AzureImageGallery.Web.Controllers
             _logger = logger;
         }
 
-        public ActionResult<PaginatedList<GalleryDetailModel>> Index(int pageNumber = 1, int pageSize = 12)
+        public IActionResult Index(int pageNumber = 1, int pageSize = 8)
         {
             if (pageNumber < 1)
             {
@@ -37,14 +37,7 @@ namespace AzureImageGallery.Web.Controllers
                  Url = images.Url
             }).ToList();
 
-            //var images = new GalleryIndexModel
-            //{
-            //    Images = imageList,
-            //    PageNumber = pageNumber,
-            //    PageCount = pageSize
-            //};
-
-            return View((imageList, pageNumber, pageSize));
+            return View(PagedList<GalleryDetailModel>.Create(imageList, pageNumber, pageSize));
         }
 
         public IActionResult Detail(int id)
