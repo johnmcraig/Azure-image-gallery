@@ -31,11 +31,11 @@
         <a asp-action="Index"
            asp-controller="Gallery"
            asp-route-pageNumber="@(Model.CurrentPage - 1)"
-           class="btn btn-outline-primary @disablePrevious"><< Previous</a>
+           class="btn btn-outline-primary @disablePrevious mx-1"><< Previous</a>
 
         @for(int i = 1; i <= Model.TotalPages; i++)
         {
-            <a class="btn btn-outline-primary @(i == Model.CurrentPage ? "active" : "")"
+            <a class="btn btn-outline-primary mx-1 @(i == Model.CurrentPage ? "active" : "")"
                asp-action="Index" 
                asp-controller="Gallery" 
                asp-route-pageNumber="@i">@i</a>
@@ -44,6 +44,6 @@
         <a asp-action="Index"
            asp-controller="Gallery"
            asp-route-pageNumber="@(Model.CurrentPage + 1)"
-           class="btn btn-outline-primary @disableNext">Next >></a>
+           class="btn btn-outline-primary @disableNext mx-1">Next >></a>
     </nav>
 </div>
