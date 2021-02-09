@@ -31,10 +31,10 @@ namespace AzureImageGallery.Web.Controllers
 
             var imageList = _imageService.GetAll().Select(images => new GalleryDetailModel
             {
-                 Id = images.Id,
-                 Title = images.Title,
-                 Created = images.Created,
-                 Url = images.Url
+                Id = images.Id,
+                Title = images.Title,
+                Created = images.Created,
+                Url = images.Url
             }).ToList();
 
             return View(PagedList<GalleryDetailModel>.Create(imageList, pageNumber, pageSize));
