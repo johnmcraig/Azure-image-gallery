@@ -22,8 +22,8 @@ namespace AzureImageGallery.Services
         public IEnumerable<GalleryImage> GetAll()
         {
             return _dbContext.GalleryImages
-                    .Include(i => i.Tags)
                     .AsNoTracking()
+                    .Include(i => i.Tags)
                     .OrderByDescending(i => i.Created)
                     .ToList();
         }
