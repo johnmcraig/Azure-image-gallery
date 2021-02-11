@@ -13,6 +13,7 @@ using AzureImageGallery.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Hosting;
+using Azure.Storage.Blobs;
 
 namespace AzureImageGallery.Web
 {
@@ -34,6 +35,8 @@ namespace AzureImageGallery.Web
             services.AddScoped<IImage, ImageService>();
 
             services.AddControllersWithViews();
+
+            services.AddScoped(x => new BlobServiceClient(Configuration.GetValue<string>("AzureStorageConnectionString")));
 
             services.AddAzureClients(builder =>
             {
