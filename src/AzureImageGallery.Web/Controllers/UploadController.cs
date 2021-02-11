@@ -2,6 +2,7 @@
 using Azure.Storage.Blobs.Models;
 using AzureImageGallery.Data;
 using AzureImageGallery.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -23,6 +24,7 @@ namespace AzureImageGallery.Web.Controllers
             _azureConnectionString = _config.GetConnectionString("AzureStorageConnectionString");
         }
 
+        //[Authorize]
         public IActionResult Index()
         {
             var vm = new UploadImageModel();
