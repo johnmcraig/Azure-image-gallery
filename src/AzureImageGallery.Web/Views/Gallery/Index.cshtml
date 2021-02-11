@@ -1,16 +1,27 @@
 ﻿@model PagedList<GalleryDetailModel>
 
 
-<div class="container body-content">
+<div class="container py-2 my-2">
+
+    <form asp-action="Index" method="get" class="py-2 my-2">
+        <div class="form-actions no-color">
+            <p>
+                Find by Title: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-primary" /> |
+                <a asp-action="Index">Back to Full List</a>
+            </p>
+        </div>
+    </form>
+    
     <div class="row gallery-content">
         @foreach (var image in Model)
         {
             @* try using embed-responsive embed-responsive-16by9 in anchor tag *@
             <div class="col-md-3 col-sm-12 col-12">
                 <div class="card mb-2">
-                    <a class="" asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
-                        <img src="@image.Url" alt="Azure Cloud Hosted Image" title="@image.Title" class="card-img-top img-fluid img-thumbnail" 
-                        style="width: 100%;height: 15rem;object-fit: cover;">
+                    <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
+                        <img src="@image.Url" alt="Azure Cloud Hosted Image" title="@image.Title" class="card-img-top img-fluid img-thumbnail"
+                             style="width: 100%;height: 15rem;object-fit: cover;">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">@image.Title</h5>
@@ -31,19 +42,24 @@
         <a asp-action="Index"
            asp-controller="Gallery"
            asp-route-pageNumber="@(Model.CurrentPage - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
            class="btn btn-outline-primary @disablePrevious mx-1"><< Previous</a>
 
         @for(int i = 1; i <= Model.TotalPages; i++)
         {
             <a class="btn btn-outline-primary mx-1 @(i == Model.CurrentPage ? "active" : "")"
-               asp-action="Index" 
-               asp-controller="Gallery" 
-               asp-route-pageNumber="@i">@i</a>
+               asp-action="Index"
+               asp-controller="Gallery"
+               asp-route-pageNumber="@i"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                @i
+            </a>
         }
 
         <a asp-action="Index"
            asp-controller="Gallery"
            asp-route-pageNumber="@(Model.CurrentPage + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
            class="btn btn-outline-primary @disableNext mx-1">Next >></a>
     </nav>
 </div>
