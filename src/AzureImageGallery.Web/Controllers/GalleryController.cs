@@ -22,20 +22,48 @@ namespace AzureImageGallery.Web.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(int pageNumber = 1, int pageSize = 8)
+        public IActionResult Index(string currentFilter, string searchString, int pageNumber = 1, int pageSize = 8)
         {
+            ViewData["CurrentFilter"] = searchString;
+
             if (pageNumber < 1)
             {
                 return RedirectToAction("Index", new { pageNumber = 1 });
             };
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
             var imageList = _imageService.GetAll().Select(images => new GalleryDetailModel
             {
                 Id = images.Id,
                 Title = images.Title,
                 Created = images.Created,
-                Url = images.Url
+                Url = images.Url,
+                Tags = images.Tags
+                    .Select(t => t.Description)
+                    .ToList()
             }).ToList();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                imageList = _imageService.GetAll().Select(images => new GalleryDetailModel
+                {
+                    Id = images.Id,
+                    Title = images.Title,
+                    Created = images.Created,
+                    Url = images.Url,
+                    Tags = images.Tags
+                        .Select(t => t.Description)
+                        .ToList()
+                }).Where(s => s.Title.ToLower().Contains(searchString)).ToList();
+            }
 
             return View(PagedList<GalleryDetailModel>.Create(imageList, pageNumber, pageSize));
         }
