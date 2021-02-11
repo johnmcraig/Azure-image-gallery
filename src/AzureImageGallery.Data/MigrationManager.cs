@@ -20,6 +20,7 @@ namespace AzureImageGallery.Data
                     try
                     {
                         appContext.Database.Migrate();
+                        Seed.SeedData(appContext);
                     }
                     catch (Exception ex)
                     {
