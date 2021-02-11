@@ -7,9 +7,12 @@ using AzureImageGallery.Data;
 using AzureImageGallery.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 
+/// <summary>
+/// Deprecated Controller due to using old version of Blob Clients. Will merge UploadController using newly supported Azure.Storage.Blobs package
+/// </summary>
 namespace AzureImageGallery.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ImageController : Controller
     {
         private readonly IConfiguration _config;
