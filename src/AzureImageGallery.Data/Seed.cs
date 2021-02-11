@@ -10,9 +10,9 @@ namespace AzureImageGallery.Data
 {
     public class Seed
     {
-        public static async Task SeedData(UserManager<AppUser> userManager)
+        public static void SeedData(AzureImageGalleryDbContext appContext)
         {
-            if(!userManager.Users.Any())
+            if(!appContext.Users.Any())
             {
                 var users = new List<AppUser>
                 {
@@ -38,9 +38,44 @@ namespace AzureImageGallery.Data
 
                 foreach (var user in users)
                 {
-                   await userManager.CreateAsync(user, "Pa$$w0rd");
+                   appContext.AddRange(user, "Pa$$w0rd");
                 }
             }
+
+            if(!appContext.GalleryImages.Any())
+            {
+                var images = new List<GalleryImage>
+                { 
+                    new GalleryImage
+                    {
+                        Title = "Boat 1",
+                        Created = DateTime.UtcNow,
+                        Url = "/images/boat1.jpeg"
+                    },
+                    new GalleryImage
+                    {
+                        Title = "Boat 2",
+                        Created = DateTime.UtcNow.AddDays(-30),
+                        Url = "/images/boat2.jpeg"
+                    },
+                    new GalleryImage
+                    {
+                        Title = "Boat 3",
+                        Created = DateTime.UtcNow.AddDays(-9),
+                        Url = "https://devimagegallery.blob.core.windows.net/images/fishing-boat-denmark-beach-sea-86699.jpeg"
+                    },
+                    new GalleryImage
+                    {
+                        Title = "Food",
+                        Created = DateTime.UtcNow,
+                        Url = "https://devimagegallery.blob.core.windows.net/images/bread-food-healthy-breakfast.jpg"
+                    }
+                };
+
+                appContext.AddRange(images);
+            }
+
+            appContext.SaveChanges();
         }
     }
 }
