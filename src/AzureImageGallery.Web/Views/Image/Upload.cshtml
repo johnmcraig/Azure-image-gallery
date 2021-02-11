@@ -7,7 +7,9 @@
 <div class="container">
 
     <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Image Upload</h1>
+
     <p>Add a new image here</p>
+
     <hr class="mt-2 mb-5"/>
 
     <div class="row ">
@@ -25,32 +27,21 @@
                     <span asp-validation-for="Tags" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label>Browse for an image to upload:</label> 
+                    <label>Browse for an image to upload:</label>
                     <input type="file" value="Browse for Image" name="file" />
-                    <div class="submit">
-                        <button type="submit" id="btn-upload" class="btn btn-info">
-                        Submit
+                    <div class="m-2 p-2">
+                        <button class="btn btn-success m-2" type="submit" id="btn-upload">
+                            Submit
+                        </button>
+
+                        <button class="btn btn-danger m-2" asp-controller="Gallery" asp-action="Index">
+                            Cancel
                         </button>
                     </div>
                 </div>
-                @* <div class="input-group mb-3">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="file" id="inputGroupFile04">
-                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <button id="btn-upload" class="btn btn-info" type="submit">
-                            Submit
-                        </button>
-                    </div>
-                </div> *@
             </form>
        
     </div>
-</div>
-
-<div class="row controls">
-  <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to Gallery</a>  
 </div>
 
 @section Scripts {
