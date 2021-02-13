@@ -9,8 +9,6 @@ namespace AzureImageGallery.Data
 {
     public static class MigrationManager
     {
-        private static readonly ILogger _logger;
-
         public static IHost MigratDatabase(this IHost host)
         {
             using (var scope = host.Services.CreateScope())
@@ -20,12 +18,12 @@ namespace AzureImageGallery.Data
                 {
                     try
                     {
+                        appContext.Database.EnsureCreated();
                         appContext.Database.Migrate();
-                        //Seed.SeedData(appContext);
+                        SeedData.SeedImages(appContext);
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogInformation($"{ex}");
                         throw ex;
                     }
                 }
