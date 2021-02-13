@@ -121,15 +121,15 @@ namespace AzureImageGallery.Web.Controllers
         // Get
         public IActionResult Delete(int id)
         {
-            return View(_imageService.GetById(id));
+            var imageToDelete = _imageService.GetById(id);
+
+            return View(imageToDelete);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, IFormCollection collection)
-        {
-            var image = _imageService.GetById(id);
-            
+        public IActionResult Delete(GalleryImage image)
+        {   
             if(image == null)
             {
                 return NotFound();
@@ -137,13 +137,13 @@ namespace AzureImageGallery.Web.Controllers
 
             try
             {
-                _imageService.DeleteImage(id);
+                _imageService.DeleteImage(image.Id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
                 _logger.LogError($"{ex.Message}");
-                return View(_imageService.GetById(id));
+                return View(_imageService.GetById(image.Id));
             }
         }
     }
