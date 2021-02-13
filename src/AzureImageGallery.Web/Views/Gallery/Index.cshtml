@@ -27,17 +27,19 @@
                     <div class="card-body">
                         <h5 class="card-title">@image.Title</h5>
                         <p class="card-text">Uploaded on: @image.Created.ToString("d")</p>
+                        <p class="card-text">Tags:
                         @if (image.Tags.Any())
                         {
                             @foreach (var tag in image.Tags)
                             {
-                                <p class="card-text">Tags: @tag</p>
-                            }
+                                <span class="badge badge-dark">@tag</span>
+                            }   
                         }
                         else
                         {
-                            <p class="card-text">no tags yet</p>
+                            <span>no tags</span>
                         }
+                        </p>
                     </div>
                 </div>
             </div>
