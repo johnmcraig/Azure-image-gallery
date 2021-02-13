@@ -3,20 +3,21 @@
 
 <div class="container py-2 my-2">
 
-    <form asp-action="Index" method="get" class="py-2 my-2">
-        <div class="form-actions no-color">
-            <p>
-                Find by Title: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-                <input type="submit" value="Search" class="btn btn-primary" /> |
-                <a asp-action="Index">Back to Full List</a>
-            </p>
-        </div>
-    </form>
+    <div class="row">
+        <form asp-action="Index" method="get" class="py-2 my-2">
+            <div class="form-actions no-color">
+                <p>
+                    Find by Title: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                    <input type="submit" value="Search" class="btn btn-primary" /> |
+                    <a asp-action="Index">Back to Full List</a>
+                </p>
+            </div>
+        </form>
+    </div>
     
     <div class="row gallery-content">
         @foreach (var image in Model)
         {
-            @* try using embed-responsive embed-responsive-16by9 in anchor tag *@
             <div class="col-md-3 col-sm-12 col-12">
                 <div class="card mb-2">
                     <a asp-controller="Gallery" asp-action="Detail" asp-route-id="@image?.Id">
@@ -25,7 +26,18 @@
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">@image.Title</h5>
-                        <p class="card-text">@image.Created</p>
+                        <p class="card-text">Uploaded on: @image.Created.ToString("d")</p>
+                        @if (image.Tags.Any())
+                        {
+                            @foreach (var tag in image.Tags)
+                            {
+                                <p class="card-text">Tags: @tag</p>
+                            }
+                        }
+                        else
+                        {
+                            <p class="card-text">no tags yet</p>
+                        }
                     </div>
                 </div>
             </div>
