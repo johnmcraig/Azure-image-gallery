@@ -4,8 +4,6 @@ using AzureImageGallery.Data.Models;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
 using System.Threading.Tasks;
 
 namespace AzureImageGallery.Services
@@ -76,17 +74,12 @@ namespace AzureImageGallery.Services
 
         public void DeleteImage(int id)
         {
-            var image = _dbContext.GalleryImages.FirstOrDefault(i => i.Id == id);
-            var tag = image.Tags.AsQueryable().ToList();
+            var image = _dbContext.GalleryImages
+                .Include(i => i.Tags)
+                .FirstOrDefault(i => i.Id == id);
+
             _dbContext.GalleryImages.Remove(image);
             _dbContext.SaveChanges();
-        }
-
-        public CloudBlobContainer GetBlobContainer(string azureConnectionString, string containerName)
-        {
-            var storageAccount = CloudStorageAccount.Parse(azureConnectionString); //check to get storage file
-            var blobClient = storageAccount.CreateCloudBlobClient(); //get direct reference
-            return blobClient.GetContainerReference(containerName); //get valid storage container
         }
 
         public async Task SetImage(string title, string tags, Uri uri)
