@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Threading.Tasks;
 
 namespace AzureImageGallery.Data
 {
@@ -20,12 +21,12 @@ namespace AzureImageGallery.Data
                     try
                     {
                         appContext.Database.Migrate();
-                        Seed.SeedData(appContext);
+                        //Seed.SeedData(appContext);
                     }
                     catch (Exception ex)
                     {
                         _logger.LogInformation($"{ex}");
-                        throw;
+                        throw ex;
                     }
                 }
             }
