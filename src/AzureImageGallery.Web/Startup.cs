@@ -15,18 +15,34 @@ namespace AzureImageGallery.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IConfiguration _config;
+
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            _config = config;
         }
 
         public IConfiguration Configuration { get; }
 
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddDbContext<AzureImageGalleryDbContext>(x =>
+                x.UseSqlite(_config.GetConnectionString("Sqlite")));
+
+            ConfigureServices(services);
+        }
+
+        public void ConfigureProductionServices(IServiceCollection services)
+        {
+            services.AddDbContext<AzureImageGalleryDbContext>(x =>
+                x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+
+            ConfigureServices(services);
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AzureImageGalleryDbContext>(options =>
-                options.UseSqlServer(Configuration
-                .GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AzureImageGalleryDbContext>();
 
             services.AddScoped<IImage, ImageService>();
 
