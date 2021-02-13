@@ -3,6 +3,7 @@ using AzureImageGallery.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System;
+using AzureImageGallery.Data.Configuration;
 
 namespace AzureImageGallery.Data
 {
@@ -20,7 +21,7 @@ namespace AzureImageGallery.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            //builder.ApplyConfiguration(new GalleryImageConfiguration());
+            builder.ApplyConfiguration(new GalleryImageConfiguration());
         }
     }
 }
