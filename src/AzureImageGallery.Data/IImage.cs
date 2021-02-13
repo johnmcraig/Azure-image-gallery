@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAzure.Storage.Blob;
-using AzureImageGallery.Data.Models;
+﻿using AzureImageGallery.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,8 +15,6 @@ namespace AzureImageGallery.Data
         IEnumerable<GalleryImage> GetWithTag(string tag);
 
         GalleryImage GetById(int id);
-
-        CloudBlobContainer GetBlobContainer(string connection, string containerName);
 
         Task SetImage(string title, string tags, Uri uri);
 
