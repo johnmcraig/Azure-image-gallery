@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using AzureImageGallery.Services;
 using AzureImageGallery.Data.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Hosting;
 using Azure.Storage.Blobs;
 
@@ -37,11 +33,6 @@ namespace AzureImageGallery.Web
             services.AddControllersWithViews();
 
             services.AddScoped(x => new BlobServiceClient(Configuration.GetValue<string>("AzureStorageConnectionString")));
-
-            services.AddAzureClients(builder =>
-            {
-                builder.AddBlobServiceClient(Configuration.GetConnectionString("AzureStorageConnectionString"));
-            });
 
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
                .AddEntityFrameworkStores<AzureImageGalleryDbContext>()
