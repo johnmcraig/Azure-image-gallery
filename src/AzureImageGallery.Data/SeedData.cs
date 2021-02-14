@@ -83,6 +83,57 @@ namespace AzureImageGallery.Data
                                Description = "breakfast",
                            }
                         }
+                    },
+                    new GalleryImage
+                    {
+                        Title = "Laptop",
+                        Created = DateTime.UtcNow,
+                        Url = "https://devimagegallery.blob.core.windows.net/images/macbook-product-shot-1-1574168.jpg",
+                        Tags = new List<ImageTag>
+                        {
+                           new ImageTag
+                           {
+                               Description = "laptop",
+                           },
+                           new ImageTag
+                           {
+                               Description = "work",
+                           }
+                        }
+                    },
+                    new GalleryImage
+                    {
+                        Title = "Dual Screen Graphic",
+                        Created = DateTime.UtcNow,
+                        Url = "https://devimagegallery.blob.core.windows.net/images/dual-screen-1745705_1280.png",
+                        Tags = new List<ImageTag>
+                        {
+                           new ImageTag
+                           {
+                               Description = "graphic",
+                           },
+                           new ImageTag
+                           {
+                               Description = "monitor",
+                           }
+                        }
+                    },
+                    new GalleryImage
+                    {
+                        Title = "Classic HTML Code",
+                        Created = DateTime.UtcNow,
+                        Url = "https://devimagegallery.blob.core.windows.net/images/code-1076533_640.jpg",
+                        Tags = new List<ImageTag>
+                        {
+                           new ImageTag
+                           {
+                               Description = "html",
+                           },
+                           new ImageTag
+                           {
+                               Description = "code",
+                           }
+                        }
                     }
                 };
 
