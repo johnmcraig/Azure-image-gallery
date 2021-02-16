@@ -18,7 +18,6 @@ namespace AzureImageGallery.Data
                 {
                     try
                     {
-                        appContext.Database.EnsureCreated();
                         appContext.Database.Migrate();
                         SeedData.SeedImages(appContext);
                     }
