@@ -42,8 +42,6 @@ namespace AzureImageGallery.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AzureImageGalleryDbContext>();
-
             services.AddScoped<IImage, ImageService>();
 
             services.AddControllersWithViews();
