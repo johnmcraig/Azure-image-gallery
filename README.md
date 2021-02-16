@@ -33,41 +33,54 @@ A SQL database reads an Uri to the actual file in the container of the storage s
 
 ## Project Structure
 
-Azure-Image-Gallery is an N-tier project that contains three major project layers: the MVC web application contained in `AzureImageGallery.Web`, database configuration, interfaces, and entities in the `AzureImageGallery.Data`, and a business logic service layer to complete operations in the `AzureImageGallery.Service` directory.  
+Azure-Image-Gallery is an N-tier project that contains three major project layers:
+
+- The MVC web application contained in `AzureImageGallery.Web`.
+- Database configuration, interfaces, and entities in the `AzureImageGallery.Data`.
+- The business logic services layer to complete operations in the `AzureImageGallery.Services` directory.  
+
+## Features
+
+- Upload images or files and view them by date created.
+- Search by title of an image.
+- Paging.
+- Authentication with Login/Register.
 
 ## Setup and Download
 
 In order to use this application:
 
-1. Download a zip file or clone the repository.
+- Download a zip file or clone the repository.
 
 ```bash
 ~$ git clone https://github.com/johnmcraig/azure-image-gallery
 ```
 
-2. Then, gather any missing NuGet packages and restore the project files using the DotNet command `dotnet restore` (or Build in Visual Studio).
+- Then, gather any missing NuGet packages and restore the project files using the DotNet command `dotnet restore` (or Build in Visual Studio).
 
-3. Afterwards, you will need to have an Azure account that has a Blob Storage service. Get the connection string from the account info under Access Keys, then pass them in the User Secrets or Application settings JSON file as:
+- Afterwards, you will need to have an Azure account that has a Blob Storage service. Get the connection string from the account info under Access Keys, then pass them in the User Secrets or Application settings JSON file as:
 `{ "AzureStorageConnectionString": "YourActualKey" }`.
 
     Additionally, if you do not have an `appsettings.json` file, you will need to create one.
 
-1. Make sure you use either Visual Studio Secret Manager or the `dotnet` command line to add the above JSON object (from point #3.) so the CloudStorage class and methods can connect using that string.
+- Make sure you use either Visual Studio Secret Manager or the `dotnet` command line to add the above JSON object (from point #3.) so the CloudStorage class and methods can connect using that string.
 
-2. Obtain the `insertImages.sql`, found in the `AzureImageGallery.Data` project, and use the INSERT command to setup two test images contained in the `wwwroot` directory of the web project.
-
-### The required NuGet Packages
-
-- Microsoft.Extensions.SecretManager.Tools
-- WindowsAzure.Storage (This was deprecated and the suggested package is Azure.Storage.Blobs v12+, working on a fix)
-- Microsoft.EntityFrameworkCore.Design
+- Upon initial startup of the application, if it is currently in development mode, a Sqlite database will be created and a few images will be seeded into the database for testing purposes.
 
 ## Technologies
 
-- C#/ASP.NET Core 3.1.1
-- SQL Server Database with Entity Framework Core ORM
+- C#/ASP.NET Core MVC --version 3.1
+- Sqlite3 Database for Development, SQL Server for product.
+- Entity Framework Core as the ORM
 - Azure Blob Storage
 - HTML5, CSS3, and Bootstrap 4.3.1
+
+### The required NuGet Packages
+
+- Microsoft.EntityFramework.Core
+- Azure.Storage.Blobs v12+
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworkCore.Sqlite
 
 ## Future Features to be Implemented
 

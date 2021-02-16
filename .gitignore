@@ -291,9 +291,14 @@ appsettings.json
 appsettings.Development.json
 
 src/AzureImageGallery/appsettings.json
-src/AzureImageGallery/Connected Services/AzureStorage1/ConnectedService.json
-src/AzureImageGallery/.config/dotnet-tools.json
-/src/AzureImageGallery/Properties/ServiceDependencies/azureimagegallery - Web Deploy/profile.arm.json
 *.db
 *.db-shm
 *.db-wal
+src/AzureImageGallery.Web/Properties/ServiceDependencies/azureimagegallery - Web Deploy/storage1.arm.json
+src/AzureImageGallery.Web/Properties/ServiceDependencies/azureimagegallery - Web Deploy/profile.arm.json
+src/AzureImageGallery.Web/Properties/ServiceDependencies/azureimagegallery - Web Deploy/mssql1.arm.json
+src/AzureImageGallery.Web/Properties/serviceDependencies.json
+src/AzureImageGallery.Web/Properties/serviceDependencies.azureimagegallery - Web Deploy.json
+src/AzureImageGallery/Properties/ServiceDependencies/azureimagegallery - Web Deploy/profile.arm.json
+src/AzureImageGallery/Connected Services/AzureStorage1/ConnectedService.json
+src/AzureImageGallery/.config/dotnet-tools.json
