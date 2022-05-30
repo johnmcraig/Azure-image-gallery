@@ -22,7 +22,8 @@ Azure Image Gallery
 
 ## Demo
 
-See a demo of the application at the following link: [AzureImageGallery](https://azureimagegallery.azurewebsites.net/)
+~~See a demo of the application at the following link: [AzureImageGallery](https://azureimagegallery.azurewebsites.net/)~~
+Currently offline to find a new hosting site.
 
 ## Scope
 
