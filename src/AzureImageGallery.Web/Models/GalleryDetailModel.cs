@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 //<summary> 
 //This is a 1:1 mapping of the GalleryImage Object in SimpleImageGallery.Data
