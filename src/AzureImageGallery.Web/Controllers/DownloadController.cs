@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +23,7 @@ namespace AzureImageGallery.Web.Controllers
         {
             var container = new BlobContainerClient(_azureConnectionString, "images");
             var image = container.GetBlobClient(name);
-            
+
             if(await image.ExistsAsync())
             {
                 var a = await image.DownloadAsync();
