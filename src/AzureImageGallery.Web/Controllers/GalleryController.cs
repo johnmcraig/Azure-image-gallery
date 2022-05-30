@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using AzureImageGallery.Data.Models;
 using AzureImageGallery.Data;
 using AzureImageGallery.Web.Models;
 using Microsoft.Extensions.Logging;
 using AzureImageGallery.Web.Helpers;
-using System.Collections.Generic;
 
 namespace AzureImageGallery.Web.Controllers
 {

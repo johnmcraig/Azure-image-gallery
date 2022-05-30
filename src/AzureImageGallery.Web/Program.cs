@@ -10,7 +10,7 @@ namespace AzureImageGallery.Web
         {
             CreateHostBuilder(args)
                 .Build()
-                .MigratDatabase()
+                .MigrateDatabase()
                 .Run();
         }
 

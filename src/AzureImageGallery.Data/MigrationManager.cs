@@ -9,7 +9,7 @@ namespace AzureImageGallery.Data
 {
     public static class MigrationManager
     {
-        public static IHost MigratDatabase(this IHost host)
+        public static IHost MigrateDatabase(this IHost host)
         {
             using (var scope = host.Services.CreateScope())
             {

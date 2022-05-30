@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 //<summary> 
-//This is a 1:1 mapping of the GelleryImage Object in SimpleImaeGellery.Data
+//This is a 1:1 mapping of the GalleryImage Object in SimpleImageGallery.Data
 //<summary>
 namespace AzureImageGallery.Web.Models
 {
