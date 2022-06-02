@@ -18,17 +18,17 @@ namespace AzureImageGallery.Web.Controllers
             _azureConnectionString = _config.GetConnectionString("AzureStorageConnectionString");
         }
 
-        [HttpGet("{name}")]
-        public async Task<IActionResult> Download(string name)
+        [HttpPost]
+        public async Task<IActionResult> Download(string fileName)
         {
             var container = new BlobContainerClient(_azureConnectionString, "images");
-            var image = container.GetBlobClient(name);
+            var image = container.GetBlobClient(fileName);
 
             if(await image.ExistsAsync())
             {
                 var a = await image.DownloadAsync();
 
-                return File(a.Value.Content, a.Value.ContentType, name);
+                return File(a.Value.Content, a.Value.ContentType, fileName);
             }
 
             return BadRequest();
