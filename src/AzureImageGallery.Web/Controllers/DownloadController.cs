@@ -5,9 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace AzureImageGallery.Web.Controllers
 {
-    [Route("/download")]
-    [ApiController]
-    public class DownloadController : ControllerBase
+    public class DownloadController : Controller
     {
         private readonly string _azureConnectionString;
         private readonly IConfiguration _config;
