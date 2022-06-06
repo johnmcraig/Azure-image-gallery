@@ -88,7 +88,7 @@ namespace AzureImageGallery.Services
             var image = new GalleryImage
             {
                 Title = title,
-                Tags = ParseTags(tags), // handle tags that are null. Pass them as a form as a comma seperated from the list
+                Tags = ParseTags(tags), // handle tags that are null. Pass them as a form as a comma separated from the list
                 Url = uri.AbsoluteUri,
                 Created = DateTime.Now
             };
