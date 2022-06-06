@@ -12,6 +12,7 @@ namespace AzureImageGallery.Web.Extensions
             query = orderBy switch
             {
                 "date" => query.OrderBy(i => i.Created),
+                "dateDecs" => query.OrderByDescending(i => i.Created),
                 _ => query.OrderBy(i => i.Title)
             };
 
